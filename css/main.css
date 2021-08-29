@@ -188,3 +188,27 @@ p
                 transform: translate(0);
     }
 }
+
+/** About me **/
+
+#body 
+{
+    position: relative;
+
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+#body p
+{
+    line-height: 1.5em;
+
+    margin-bottom: 2em;
+}
+
+#body p:last-child
+{
+    margin-bottom: 0;
+}
+
+
