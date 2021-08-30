@@ -40,6 +40,11 @@ p
     font-size: 1.8rem;
 }
 
+a
+{
+    color: #d8dae8;
+}
+
 
 @media (max-width:600px)
 {
@@ -226,6 +231,29 @@ p
 {
     margin-bottom: 0;
 }
+
+/** Skills **/
+
+#skills
+{
+    position: relative;
+
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+#skills p
+{
+    line-height: 1.5em;
+
+    margin-bottom: 2em;
+}
+
+#skills p:last-child
+{
+    margin-bottom: 0;
+}
+
 
 /** About me **/
 
