@@ -1,0 +1,108 @@
+canvas {
+  position: fixed;         /* stay in place even when scrolling */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;             /* behind all other content */
+  display: block;          /* remove default inline space */
+}
+
+html {
+  background-color: black;
+}
+
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+
+    color: #eee;
+    font-family: monospace;
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  .block {
+    padding-left: 10vw;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    max-width: 700px;
+    margin: 1px auto;
+    padding: 5px;
+    min-height: 3rem;
+  }
+
+  .block:first-of-type {
+    background-color: transparent;
+    padding-top: 40vh;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .block.visible {
+    background-color: transparent;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .line {
+    white-space: pre-wrap;
+    display: block;
+  }
+
+  .blinking-cursor {
+    display: inline-block;
+    animation: blink 0.6s step-start infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  #cta {
+    appearance: none;
+    all: unset; /* Removes all native styling */
+    background-color: transparent;
+    display: none;
+    margin: 10px;
+    padding: 12px 24px;
+    font-family: monospace;
+    font-size: 16px;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 2; /* ensure it's above canvas */
+    position: relative;
+    border-radius: 30px;
+  }
+
+  #cta:hover {
+    background-color: white;
+    color: black;
+  }
+
+  #cta:focus {
+    outline: none;
+  }
+
+  .sub-description {
+    opacity: 0.8;
+  }
+
+  #cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .button_block {
+    padding-left: 40vw;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    max-width: 700px;
+    margin: auto;
+    padding: 5px 3vw;
+    min-height: 3rem;
+  }

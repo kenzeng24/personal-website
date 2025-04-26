@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Zeng</title>
+
+    <!-- Monospace Font & Minimal Styles -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #eee;
+            font-family: monospace;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            color: #00ff99;
+        }
+
+        a {
+            color: #00d1ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .highlight {
+            color: #ffcc00;
+        }
+        .dimmed {
+            opacity: 0.6;
+        }
+        .normal {
+            opacity: 1;
+        }
+        /* Center everything */
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 200px; /* space reserved while loading */
+        }
+
+        /* Spinner style */
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            margin: -20px 0 0 -20px;
+            border: 4px solid #ccc;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Actual image hidden by default */
+        .startup-image {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            opacity: 0; /* Start invisible */
+            transition: opacity 1s ease; /* Smooth fade */
+        }
+
+        /* Spinner animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000; /* Match your site background */
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+    <div id="mainContent" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
+    <div class="container">
+        <!-- Profile image with responsive width and preserved aspect ratio -->
+        <!-- <img src="img/startup.png" style="display: block; margin: 0 auto; max-width: 100%; width: auto; height: auto; max-width: 800px;"> -->
+        <div class="image-container">
+            <img src="img/startup.png" class="startup-image" id="startupImage">
+          </div>
+        <h1>Overview</h1>
+
+        <section>
+            <p>
+                I'm a research ML engineer at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>, focused on developing deep learning systems for breast cancer prognosis.
+                I previously worked as a deep learning researcher at NYU Langone Health and a data engineer at Revelio Labs.
+            </p>
+        </section>
+
+        <section>
+            <h2>Career Highlights</h2>
+            <p>
+                I joined Ataraxis AI in 2023 as one of the first 2 engineers while I was doing research at NYU Langone Health.
+                At Ataraxis, I've built multimodal models for histopathology using data from 15+ hospitals. 
+                This work led to one of the first AI-driven breast cancer prognostic tests, which was key to raising <b>$20M+</b> over 2 rounds.
+                <br>
+                <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> | 
+                <a href="https://www.biopharmatrend.com/post/996-ataraxis-ai-steps-forward-in-precision-cancer-care-with-4-million-in-seed-funding/" target="_blank">Biopharma Trend</a> | 
+                <a href="https://www.forbes.com/sites/alexknapp/2024/10/31/this-ai-model-could-keep-thousands-of-cancer-patients-from-getting-unnecessary-treatments/" target="_blank">Forbes</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li><b>Programming:</b> Python, SQL, PyTorch, scikit-learn</li>
+                <li><b>NLP:</b> BERT for diagnosis extraction and de-identification</li>
+                <li><b>ML:</b> Deep learning + statistical modeling for health + finance</li>
+            </ul>
+        </section>
+
+        <section id="publications">
+
+            <h2>Publications</h2>
+            <ul>
+                <li>
+                    <p>
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10350195/" target="_blank">Improving Information Extraction from Pathology Reports using Named Entity Recognition</a>
+                </p>
+                <p>
+                    <span class="normal"><b></b>Ken G Zeng</b></span>, 
+                    <span class="dimmed">Tarun Dutt</span>, 
+                    <span class="dimmed">Jan Witowski</span>, 
+                    <span class="dimmed">GV Kranthi Kiran</span>, 
+                    <span class="dimmed">Frank Yeung</span>, 
+                    <span class="dimmed">Michelle Kim</span>, 
+                    <span class="dimmed"></span>...</span>, 
+                    <span class="dimmed">Freya Schnabel</span>, 
+                    <span class="dimmed">Linda M Pak</span>, 
+                    <span class="dimmed">Yiqiu Shen</span>, 
+                    <span class="dimmed">Krzysztof J Geras</span>
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <a href="https://openreview.net/pdf?id=opIx2SYw7r" target="_blank">Squeezing performance from pathology foundation models with chained hyperparameter searches</a>
+                </p>
+                <p>
+                    <span class="dimmed">Joseph Cappadona</span>, 
+                    <span class="normal">Ken Zeng</span>, 
+                    <span class="dimmed">Carlos Fernandez-Granda</span>, 
+                    <span class="dimmed">Jan Witowski</span>, 
+                    <span class="dimmed">Yann LeCun</span>, 
+                    <span class="dimmed">Krzysztof J Geras</span>
+                </p>
+
+                <p>
+                </li>
+                <li>
+                    <p>
+                        <a href="https://arxiv.org/pdf/2410.21256" target="_blank">Multimodal Risk Prediction Model for Breast Cancer Recurrence</a>
+                    </p>
+                    <p>
+                        <span class="dimmed">Jan Witowski</span>, 
+                        <span class="normal">Ken Zeng</span>, 
+                        <span class="dimmed">Joseph Cappadona</span>, 
+                        ... , 
+                        <span class="dimmed">Francisco J Esteva</span>, 
+                        <span class="dimmed">Lajos Pusztai</span>, 
+                        <span class="dimmed">Yann LeCun</span>, 
+                        <span class="dimmed">Krzysztof J Geras</span>
+                    </p>
+                </li>
+            </ul>
+
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:kengaryzeng@gmail.com">kengaryzeng@gmail.com</a></p>
+            <p>
+                <a href="https://twitter.com/KenZeng56288846">Twitter</a> | 
+                <a href="https://github.com/kenzeng24">GitHub</a> | 
+                <a href="https://www.linkedin.com/in/ken-zeng-1b4b0a14b/">LinkedIn</a>
+            </p>
+        </section>
+    </div>
+</div>
+</body>
+<script>
+    const img = document.getElementById('startupImage');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const mainContent = document.getElementById('mainContent');
+
+    // Function to hide loading screen and show content
+    function showPageContent() {
+    // Fade out the loading overlay
+    loadingOverlay.style.opacity = '0';
+    
+    // After fade out is done (1s), hide it completely
+    setTimeout(() => {
+        loadingOverlay.style.display = 'none';
+
+        // Now fade in the page content
+        mainContent.style.opacity = '1';
+        mainContent.style.transform = 'translateY(0)';
+    }, 1000);
+    }
+
+    // Ensure the image is fully loaded and decoded
+    if (img.complete) {
+    img.decode().then(showPageContent).catch(showPageContent);
+    } else {
+    img.onload = function() {
+        img.decode().then(showPageContent).catch(showPageContent);
+    };
+    }
+    setTimeout(() => {
+    img.style.opacity = '1';
+    }, 1200); // 1s for overlay fade + 200ms
+    </script>
+    
+</html>
