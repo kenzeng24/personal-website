@@ -39,6 +39,11 @@ body {
     padding-top: 40vh;
     font-size: 30px;
     font-weight: bold;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    text-shadow: 2px 2px 0px rgba(0, 255, 153, 0.3);
   }
 
   .block.visible {
@@ -61,40 +66,45 @@ body {
     50% { opacity: 0; }
   }
 
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
   #cta {
-    appearance: none;
-    all: unset; /* Removes all native styling */
-    background-color: transparent;
-    display: none;
-    margin: 10px;
-    padding: 12px 24px;
-    font-family: monospace;
+    all: unset;
+    font-family: 'Press Start 2P', monospace;
     font-size: 16px;
-    border: 2px solid white;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s ease;
-    z-index: 2; /* ensure it's above canvas */
-    position: relative;
+    padding: 14px 28px;
+    border: 2px solid #00ff99;
+    color: #00ff99;
+    background-color: transparent;
     border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    margin: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 0 0px transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
   }
-
-  #cta:hover {
-    background-color: white;
-    color: black;
-  }
-
-  #cta:focus {
-    outline: none;
-  }
-
-  .sub-description {
-    opacity: 0.8;
-  }
-
+  
   #cta.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  #cta:hover {
+    background-color: #00ff99;
+    color: black;
+    /* Remove glow, keep clean look */
+    box-shadow: none;
+  }
+  
+  #cta:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 255, 153, 0.5);
   }
 
   .button_block {

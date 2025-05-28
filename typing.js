@@ -66,7 +66,7 @@ function startTypingBlocks(index = 0) {
   if (index >= blocks.length) {
     // Show CTA at the end
     const cta = document.getElementById("cta");
-    cta.style.display = "block";
+    cta.classList.add("visible");
     cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
