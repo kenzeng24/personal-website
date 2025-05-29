@@ -116,3 +116,8 @@ body {
     padding: 5px 3vw;
     min-height: 3rem;
   }
+
+  .block.sub-description {
+    margin-bottom: -2rem; /* Reduce space after sub-description */
+  }
+  
