@@ -14,10 +14,10 @@ const Y_LAYER_GAP = 15;
 const X_STEP_PX = 10;             // nominal x step (will be scaled by DPR)
 const NOISE_TIME_SPEED = 2.0;     // wave scroll speed
 const AMP_MOUSE_Y_INFL = 0.02;    // mouse Y influence
-const AMP_SCALE = 1.5;            // global amp multiplier
-const DRIFT_SPEED = 0.001;        // amp field horizontal drift
-const PULSE_SPEED = 0.001;        // amp field vertical pulsing
-const WAVE_SCROLL_PX_PER_SEC = 2; // try 2–10 for subtle motion
+const AMP_SCALE = 1.4;            // global amp multiplier
+const DRIFT_SPEED = 0.0005;        // amp field horizontal drift
+const PULSE_SPEED = 0.0005;        // amp field vertical pulsing
+const WAVE_SCROLL_PX_PER_SEC = 1.3; // try 2–10 for subtle motion
 
 // --- Wave state functions for transitions ---
 function captureWaveState() {
