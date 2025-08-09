@@ -100,6 +100,17 @@
             visibility: visible;
             transition: opacity 1s ease, visibility 1s ease;
         }
+        
+        /* Canvas for wave background */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; /* Behind all content */
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -232,6 +243,10 @@
         </section>
     </div>
 </div>
+
+<!-- Add canvas for wave background -->
+<canvas id="canvas"></canvas>
+
 </body>
 <script>
     const img = document.getElementById('startupImage');

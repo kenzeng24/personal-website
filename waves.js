@@ -4,13 +4,13 @@ const ctx = canvas.getContext('2d');
 const DPR = Math.max(1, window.devicePixelRatio || 1);
 
 // --- Tunable constants ---
-const LAYER_COUNT = 30;           // previous: 20
+const LAYER_COUNT = 13;           // previous: 20
 const BASE_ALPHA = 0.05;          // overall opacity baseline
 const ALPHA_STEP = 0.004;         // per-layer opacity increase
 const ALPHA_FLICKER = 0.03;       // subtle time-varying alpha
 const LAG_MIN = 0.07;             // previous: 0.02
 const LAG_MAX = 0.10;
-const Y_LAYER_GAP = 20;
+const Y_LAYER_GAP = 15;
 const X_STEP_PX = 10;             // nominal x step (will be scaled by DPR)
 const NOISE_TIME_SPEED = 2.0;     // wave scroll speed
 const AMP_MOUSE_Y_INFL = 0.02;    // mouse Y influence
@@ -18,6 +18,35 @@ const AMP_SCALE = 1.5;            // global amp multiplier
 const DRIFT_SPEED = 0.001;        // amp field horizontal drift
 const PULSE_SPEED = 0.001;        // amp field vertical pulsing
 const WAVE_SCROLL_PX_PER_SEC = 2; // try 2–10 for subtle motion
+
+// --- Wave state functions for transitions ---
+function captureWaveState() {
+  return {
+    timeMs: timeMs,
+    mouse: { ...mouse },
+    smoothedMouseByLayer: smoothedMouseByLayer.map(layer => ({ ...layer }))
+  };
+}
+
+function restoreWaveState(state) {
+  if (state) {
+    timeMs = state.timeMs;
+    mouse = { ...state.mouse };
+    state.smoothedMouseByLayer.forEach((layer, i) => {
+      if (smoothedMouseByLayer[i]) {
+        smoothedMouseByLayer[i] = { ...layer };
+      }
+    });
+  }
+}
+
+function freezeWaves() {
+  // Stop the animation loop
+  animating = false;
+  // Capture current state and store in sessionStorage
+  const state = captureWaveState();
+  sessionStorage.setItem('waveState', JSON.stringify(state));
+}
 
 // --- Size helpers ---
 function resizeCanvas() {
@@ -34,6 +63,16 @@ resizeCanvas();
 let timeMs = 0;
 let mouse = { x: canvas.width / DPR / 2, y: canvas.height / DPR / 2 };
 const smoothedMouseByLayer = Array.from({ length: LAYER_COUNT }, () => ({ x: mouse.x, y: mouse.y }));
+
+// Check if we're restoring from a previous page
+const savedState = sessionStorage.getItem('waveState');
+if (savedState) {
+  try {
+    restoreWaveState(JSON.parse(savedState));
+  } catch (e) {
+    console.log('Could not restore wave state:', e);
+  }
+}
 
 window.addEventListener('mousemove', (e) => {
   mouse.x = e.clientX;
@@ -79,8 +118,11 @@ function drawLayer(yBase, layerIndex, timeOffset, influence) {
     const timeSec = timeMs / 20;
     const y = offsetY + noise((x + timeSec * WAVE_SCROLL_PX_PER_SEC) + timeOffset) * amp;
 
-    if (x === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
+    if (x === 0) {
+      ctx.moveTo(x, y);
+    } else {
+      ctx.lineTo(x, y);
+    }
   }
 
   ctx.lineTo(w, canvas.height / DPR);
@@ -98,6 +140,9 @@ function drawLayerLine(yBase, layerIndex, timeOffset, influence) {
   const w = canvas.width / DPR;
   const step = Math.max(4, Math.floor(X_STEP_PX));
 
+  ctx.lineWidth = 0.5 + layerIndex * 0.05;   // thin → thicker
+  ctx.lineCap = 'round';                    // smoother joins
+
   for (let x = 0; x <= w; x += step) {
     const offsetY = yBase + (influence.y - (canvas.height / DPR) / 2) * 0.1;
     const amp = ampAtX(x, timeMs) * AMP_SCALE + influence.y * AMP_MOUSE_Y_INFL;
@@ -112,12 +157,15 @@ function drawLayerLine(yBase, layerIndex, timeOffset, influence) {
   ctx.strokeStyle = `rgba(255, 255, 255, ${
     BASE_ALPHA * 6 + layerIndex * ALPHA_STEP + noise(timeMs * 0.001) * ALPHA_FLICKER
   })`;
-  ctx.lineWidth = 1; // tweak if you want thicker lines
+  // ctx.lineWidth = 1; // tweak if you want thicker lines
   ctx.stroke();
 }
 
+let animating = true;
 let lastTs = performance.now();
 function animate(ts) {
+  if (!animating) return; // Stop animation if frozen
+  
   const dt = Math.min(50, ts - lastTs); // clamp to avoid huge jumps on tab switches
   lastTs = ts;
   timeMs += dt;
@@ -150,3 +198,10 @@ window.addEventListener('resize', () => {
     }
   }, 100);
 });
+
+// Export functions for use by other scripts
+window.waveControls = {
+  freeze: freezeWaves,
+  capture: captureWaveState,
+  restore: restoreWaveState
+};
