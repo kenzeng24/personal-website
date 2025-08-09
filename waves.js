@@ -17,7 +17,7 @@ const AMP_MOUSE_Y_INFL = 0.02;    // mouse Y influence
 const AMP_SCALE = 1.5;            // global amp multiplier
 const DRIFT_SPEED = 0.001;        // amp field horizontal drift
 const PULSE_SPEED = 0.001;        // amp field vertical pulsing
-const WAVE_SCROLL_PX_PER_SEC = 10; // try 2–10 for subtle motion
+const WAVE_SCROLL_PX_PER_SEC = 2; // try 2–10 for subtle motion
 
 // --- Size helpers ---
 function resizeCanvas() {
