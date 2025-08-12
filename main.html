@@ -57,18 +57,19 @@
             min-height: 200px; /* space reserved while loading */
         }
 
-        /* Spinner style */
-        .spinner {
+        /* Spinning wheel loader */
+        .ring-loader {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 40px;
-            height: 40px;
-            margin: -20px 0 0 -20px;
-            border: 4px solid #ccc;
-            border-top: 4px solid #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loadingCanvas {
+            display: block;
         }
 
         /* Actual image hidden by default */
@@ -80,11 +81,7 @@
             transition: opacity 1s ease; /* Smooth fade */
         }
 
-        /* Spinner animation */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* Remove old spinner animation - using canvas-based loader now */
         #loadingOverlay {
             position: fixed;
             top: 0;
@@ -100,22 +97,13 @@
             visibility: visible;
             transition: opacity 1s ease, visibility 1s ease;
         }
-        
-        /* Canvas for wave background */
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1; /* Behind all content */
-            display: block;
-        }
     </style>
 </head>
 <body>
     <div id="loadingOverlay">
-        <div class="spinner"></div>
+        <div class="ring-loader">
+            <canvas id="loadingCanvas"></canvas>
+        </div>
     </div>
     <div id="mainContent" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
     <div class="container">
@@ -134,12 +122,15 @@
         </section>
 
         <section>
-            <h2>Career Highlights</h2>
+            <h2>My Story</h2>
             <p>
-                I joined Ataraxis AI in 2023 as one of the first 2 engineers while I was doing research at NYU Langone Health.
-                At Ataraxis, I've built multimodal models for histopathology using data from 15+ hospitals. 
-                This work led to one of the first AI-driven breast cancer prognostic tests, which was key to raising <b>$20M+</b> over 2 rounds.
-                <br>
+                I joined Ataraxis AI in 2023 as one of the first two engineers, while conducting research at NYU Langone Health. 
+                Since joining: 
+                <ul>
+                    <li>Helped launch the company as a founding member in a 5 person team and 4M seed funding. </li>
+                    <li>Contributed to the development and validation of a multimodal histopathology models using data from 15+ hospitals.</li>
+                    <li>Was the 2nd author on preliminary results that were instrumental in securing a $20M+ Series A.</li>
+                </ul>
                 <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> | 
                 <a href="https://www.biopharmatrend.com/post/996-ataraxis-ai-steps-forward-in-precision-cancer-care-with-4-million-in-seed-funding/" target="_blank">Biopharma Trend</a> | 
                 <a href="https://www.forbes.com/sites/alexknapp/2024/10/31/this-ai-model-could-keep-thousands-of-cancer-patients-from-getting-unnecessary-treatments/" target="_blank">Forbes</a>
@@ -244,41 +235,7 @@
     </div>
 </div>
 
-<!-- Add canvas for wave background -->
-<canvas id="canvas"></canvas>
-
 </body>
-<script>
-    const img = document.getElementById('startupImage');
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    const mainContent = document.getElementById('mainContent');
-
-    // Function to hide loading screen and show content
-    function showPageContent() {
-    // Fade out the loading overlay
-    loadingOverlay.style.opacity = '0';
-    
-    // After fade out is done (1s), hide it completely
-    setTimeout(() => {
-        loadingOverlay.style.display = 'none';
-
-        // Now fade in the page content
-        mainContent.style.opacity = '1';
-        mainContent.style.transform = 'translateY(0)';
-    }, 1000);
-    }
-
-    // Ensure the image is fully loaded and decoded
-    if (img.complete) {
-    img.decode().then(showPageContent).catch(showPageContent);
-    } else {
-    img.onload = function() {
-        img.decode().then(showPageContent).catch(showPageContent);
-    };
-    }
-    setTimeout(() => {
-    img.style.opacity = '1';
-    }, 1200); // 1s for overlay fade + 200ms
-    </script>
+<script src="spinning_wheel.js"></script>
     
 </html>

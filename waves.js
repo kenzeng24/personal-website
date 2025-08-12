@@ -4,14 +4,14 @@ const ctx = canvas.getContext('2d');
 const DPR = Math.max(1, window.devicePixelRatio || 1);
 
 // --- Tunable constants ---
-const LAYER_COUNT = 13;           // previous: 20
+const LAYER_COUNT = 16;           // previous: 20
 const BASE_ALPHA = 0.05;          // overall opacity baseline
 const ALPHA_STEP = 0.004;         // per-layer opacity increase
 const ALPHA_FLICKER = 0.03;       // subtle time-varying alpha
 const LAG_MIN = 0.07;             // previous: 0.02
 const LAG_MAX = 0.10;
-const Y_LAYER_GAP = 15;
-const X_STEP_PX = 10;             // nominal x step (will be scaled by DPR)
+const Y_LAYER_GAP = 9; // 15
+const X_STEP_PX = 20;             // nominal x step (will be scaled by DPR)
 const NOISE_TIME_SPEED = 2.0;     // wave scroll speed
 const AMP_MOUSE_Y_INFL = 0.02;    // mouse Y influence
 const AMP_SCALE = 1.4;            // global amp multiplier
