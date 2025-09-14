@@ -72,21 +72,16 @@ body {
     all: unset;
     font-family: 'Press Start 2P', Helvetica;
     font-size: 20px;
-    /* padding: 5px 20px; */
-    /* border: 2px solid #00ff99; */
     color: #00ff99;
     background-color: transparent;
-    /* border-radius: 30px; */
     cursor: pointer;
     position: relative;
     z-index: 2;
-    /* margin: 10px; */
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     white-space: nowrap;
     box-shadow: 0 0 0px transparent;
-    opacity: 0;
-    /* transform: translateY(20px); */
+    opacity: 1;
     transition: all 0.4s ease;
   }
   
