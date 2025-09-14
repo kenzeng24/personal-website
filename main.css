@@ -18,7 +18,7 @@ body {
     padding: 0;
 
     color: #eee;
-    font-family: monospace;
+    font-family: Helvetica;
     scroll-behavior: smooth;
     font-size: 16px;
   }
@@ -39,7 +39,7 @@ body {
     padding-top: 40vh;
     font-size: 30px;
     font-weight: bold;
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'Press Start 2P', Helvetica;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
@@ -70,23 +70,23 @@ body {
 
   #cta {
     all: unset;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 16px;
-    padding: 14px 28px;
-    border: 2px solid #00ff99;
+    font-family: 'Press Start 2P', Helvetica;
+    font-size: 20px;
+    /* padding: 5px 20px; */
+    /* border: 2px solid #00ff99; */
     color: #00ff99;
     background-color: transparent;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     cursor: pointer;
     position: relative;
     z-index: 2;
-    margin: 10px;
+    /* margin: 10px; */
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     white-space: nowrap;
     box-shadow: 0 0 0px transparent;
     opacity: 0;
-    transform: translateY(20px);
+    /* transform: translateY(20px); */
     transition: all 0.4s ease;
   }
   
@@ -108,12 +108,12 @@ body {
   }
 
   .button_block {
-    padding-left: 40vw;
+    /* padding-left: 10vw; */
     transform: translateY(10px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     max-width: 700px;
     margin: auto;
-    padding: 5px 3vw;
+    /* padding: 3px 3vw; */
     min-height: 3rem;
   }
 
