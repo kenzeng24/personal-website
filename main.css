@@ -1,15 +1,18 @@
 canvas {
-  position: fixed;         /* stay in place even when scrolling */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;             /* behind all other content */
-  display: block;          /* remove default inline space */
+    position: fixed;
+    /* stay in place even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* behind all other content */
+    display: block;
+    /* remove default inline space */
 }
 
 html {
-  background-color: black;
+    background-color: black;
 }
 
 body {
@@ -21,9 +24,10 @@ body {
     font-family: Helvetica;
     scroll-behavior: smooth;
     font-size: 16px;
-  }
+    font-weight: lighter;
+}
 
-  .block {
+.block {
     padding-left: 10vw;
     opacity: 0;
     transform: translateY(10px);
@@ -32,9 +36,9 @@ body {
     margin: 1px auto;
     padding: 5px;
     min-height: 3rem;
-  }
+}
 
-  .block:first-of-type {
+.block:first-of-type {
     background-color: transparent;
     padding-top: 40vh;
     font-size: 30px;
@@ -44,31 +48,33 @@ body {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     text-shadow: 2px 2px 0px rgba(0, 255, 153, 0.3);
-  }
+}
 
-  .block.visible {
+.block.visible {
     background-color: transparent;
     opacity: 1;
     transform: translateY(0);
-  }
+}
 
-  .line {
+.line {
     white-space: pre-wrap;
     display: block;
-  }
+}
 
-  .blinking-cursor {
+.blinking-cursor {
     display: inline-block;
     animation: blink 0.6s step-start infinite;
-  }
+}
 
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
 
-  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-  #cta {
+#cta {
     all: unset;
     font-family: 'Press Start 2P', Helvetica;
     font-size: 20px;
@@ -83,26 +89,26 @@ body {
     box-shadow: 0 0 0px transparent;
     opacity: 1;
     transition: all 0.4s ease;
-  }
-  
-  #cta.visible {
+}
+
+#cta.visible {
     opacity: 1;
     transform: translateY(0);
-  }
-  
-  #cta:hover {
+}
+
+#cta:hover {
     background-color: #00ff99;
     color: black;
     /* Remove glow, keep clean look */
     box-shadow: none;
-  }
-  
-  #cta:focus {
+}
+
+#cta:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 255, 153, 0.5);
-  }
+}
 
-  .button_block {
+.button_block {
     /* padding-left: 10vw; */
     transform: translateY(10px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -110,9 +116,9 @@ body {
     margin: auto;
     /* padding: 3px 3vw; */
     min-height: 3rem;
-  }
+}
 
-  .block.sub-description {
-    margin-bottom: -2rem; /* Reduce space after sub-description */
-  }
-  
+.block.sub-description {
+    margin-bottom: -2rem;
+    /* Reduce space after sub-description */
+}
