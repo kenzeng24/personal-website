@@ -58,10 +58,10 @@ function createBasicRingLoader() {
 function createRingLoader() {
     const canvas = document.getElementById('loadingCanvas');
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
-    
+
     function resize() {
         const size = Math.min(window.innerWidth, window.innerHeight) * 0.3; // ~30vmin
         canvas.style.width = size + 'px';
@@ -71,104 +71,104 @@ function createRingLoader() {
     }
     resize();
     window.addEventListener('resize', resize);
-    
+
     // -------- knobs you can tweak --------
     const LINES = 20; // number of ellipses in the band
     const ROT_SPEED = 1.1; // rad/s (overall spin)
     const BASE_RX = 0.42; // base radii as fraction of canvas
     const BASE_RY = 0.28;
-    
+
     const PULSE_HZ = 1.0; // base breathing frequency (cycles per second)
     const BASE_AMP = 0.14; // baseline amplitude (max scale is 1 ± AMP terms)
-    
+
     // amplitude modulation by time & angle (radian position)
-    const AMP_TIME_HZ = 0.33; // how fast amplitude swells/shrinks over time
+    const AMP_TIME_HZ = 0.6; // how fast amplitude swells/shrinks over time
     const AMP_ANG_LOBES = 4; // how many amplitude lobes around the ring
-    
+
     // traveling wave around the ring (independent of spin)
     const TRAVEL_HZ = 0.5; // how fast the out-of-phase wave circulates
-    
+
     // smooth "noise" controls (kept subtle so it feels organic, not jittery)
     const NOISE_AMOUNT = 0.50; // 0..1; ±20% amplitude variation
     const NOISE_SPEED = 1; // speed of noise evolution over time
     const NOISE_SCALE = 2.0; // spatial scale along the ring (theta direction)
     // -------------------------------------
-    
+
     // simple smooth 2D noise (combination of sines; returns ~[0,1])
     function smoothNoise2D(x, y) {
         const n = Math.sin(1.3 * x + 1.7 * y) +
-                  Math.sin(0.7 * x - 2.3 * y + 1.1) +
-                  Math.sin(2.1 * x + 0.5 * y - 0.7);
+            Math.sin(0.7 * x - 2.3 * y + 1.1) +
+            Math.sin(2.1 * x + 0.5 * y - 0.7);
         return 0.5 + 0.5 * (n / 3); // normalize to ~[0,1]
     }
-    
+
     let t0 = undefined;
     let animationActive = true;
-    
+
     function draw(ts) {
         if (!animationActive) return;
-        
+
         if (t0 === undefined) t0 = ts;
         const t = (ts - t0) / 1000; // seconds since start
-    
+
         const w = canvas.width / dpr;
         const h = canvas.height / dpr;
-    
+
         // reset + clear
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.clearRect(0, 0, w, h);
-    
+
         // center & rotate the whole bundle
         ctx.translate(w / 2, h / 2);
         ctx.rotate(t * ROT_SPEED);
-    
+
         // phases that evolve over time
         const pulsePhase = 2 * Math.PI * PULSE_HZ * t; // base breathing
         const travelPhase = 2 * Math.PI * TRAVEL_HZ * t; // wave traveling around ring
         const timeAmpPhase = 2 * Math.PI * AMP_TIME_HZ * t; // amplitude time modulation
-    
+
         // draw ellipses rotated from 0..π
         for (let i = 0; i < LINES; i++) {
             const theta = (i / (LINES - 1)) * Math.PI; // "radian position" around ring
-    
+
             // --- amplitude as a function of time & theta, plus smooth noise ---
             // start with a baseline amplitude
             let amp = BASE_AMP;
-    
+
             // multiply by time modulation (0..1)
             const timeMod = 0.5 + 0.5 * Math.sin(timeAmpPhase);
             amp *= timeMod;
-    
+
             // multiply by angular modulation (0..1) -> AMP_ANG_LOBES lobes around ring
             const angMod = 0.5 + 0.5 * Math.sin(AMP_ANG_LOBES * theta);
             amp *= angMod;
-    
+
             // add smooth noise as a mild factor around 1.0 -> [1-N, 1+N]
             const n = smoothNoise2D(NOISE_SPEED * t, NOISE_SCALE * theta);
             const noiseFactor = 1 - NOISE_AMOUNT + NOISE_AMOUNT * (2 * n);
             amp *= noiseFactor;
             // ------------------------------------------------------------------
-    
+
             // per-ellipse phase so different parts breathe out of phase
             const phase = pulsePhase + AMP_ANG_LOBES * theta + travelPhase;
-    
+
             // final scale (1 ± amp)
             const scale = 1 + amp * Math.sin(phase);
-    
+
             // radii
             const rx = w * BASE_RX * scale;
             const ry = h * BASE_RY * scale;
-    
+
             // depth shading to suggest 3D (front brighter)
             const alpha = 0.35 + 0.65 * Math.sin(theta);
-    
+
             ctx.beginPath();
             ctx.ellipse(0, 0, rx, ry, theta, 0, Math.PI * 2);
             ctx.lineWidth = 1;
             ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
             ctx.stroke();
         }
-    
+
         // Stop animation when overlay is hidden
         if (document.getElementById('loadingOverlay').style.opacity === '0') {
             animationActive = false;
@@ -176,7 +176,7 @@ function createRingLoader() {
             requestAnimationFrame(draw);
         }
     }
-    
+
     requestAnimationFrame(draw);
 }
 
@@ -202,15 +202,49 @@ function showPageContent() {
     }, 1000);
 }
 
+// Track when page started loading and when image is ready
+const pageStartTime = performance.now();
+const MINIMUM_LOADING_TIME = 1300; // 2 seconds minimum
+let imageReady = false;
+
+function tryShowContent() {
+    const elapsedTime = performance.now() - pageStartTime;
+
+    if (imageReady && elapsedTime >= MINIMUM_LOADING_TIME) {
+        // Both conditions met - show content immediately
+        showPageContent();
+    } else if (imageReady) {
+        // Image ready but not enough time passed - wait for remaining time
+        const remainingTime = MINIMUM_LOADING_TIME - elapsedTime;
+        setTimeout(showPageContent, remainingTime);
+    } else if (elapsedTime >= MINIMUM_LOADING_TIME) {
+        // Time passed but image not ready - wait for image
+        // (this will be handled by the image load handlers below)
+    }
+    // If neither condition is met, do nothing - wait for both
+}
+
 // Ensure the image is fully loaded and decoded
 if (img.complete) {
-    img.decode().then(showPageContent).catch(showPageContent);
+    img.decode().then(() => {
+        imageReady = true;
+        tryShowContent();
+    }).catch(() => {
+        imageReady = true;
+        tryShowContent();
+    });
 } else {
     img.onload = function() {
-        img.decode().then(showPageContent).catch(showPageContent);
+        img.decode().then(() => {
+            imageReady = true;
+            tryShowContent();
+        }).catch(() => {
+            imageReady = true;
+            tryShowContent();
+        });
     };
 }
 
 setTimeout(() => {
     img.style.opacity = '1';
-}, 1600); // 1s for overlay fade + 600ms
+}, 500); // 1s for overlay fade + 600ms

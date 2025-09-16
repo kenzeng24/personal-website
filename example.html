@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,83 +8,106 @@
 
     <!-- Monospace Font & Minimal Styles -->
     <style>
-           /* --- Two-column section layout --- */
-           body {
+        /* --- Two-column section layout --- */
+        body {
             background-color: #f0f0f0;
             color: #000;
             /* background-color: #000;
-            color: #eee; */
+          color: #eee; */
             font-family: Helvetica;
             margin: 0;
             padding: 0;
-           }
-           .container {
-  max-width: 800px;
-  margin: auto;
-  padding: 0 2rem 2rem 2rem;     /* top=0, right/bottom/left=2rem */
-}
-.section-2col {
-  display: grid;
-  grid-template-columns: 500px 1fr; /* left title width | right content fills */
-  column-gap: 2rem;
-  align-items: start; /* top-align multi-line content */
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-}
+        }
 
-.section-2col .title {
-  margin: 0;                /* remove default h2 margin */
-  text-align: left;
-  /* margin-left: 3rem; */
-}
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 0 2rem 2rem 2rem;
+            /* top=0, right/bottom/left=2rem */
+        }
 
-.section-2col .content {
-  text-align: left;
-}
+        .section-2col {
+            display: grid;
+            grid-template-columns: 500px 1fr;
+            /* left title width | right content fills */
+            column-gap: 2rem;
+            align-items: start;
+            /* top-align multi-line content */
+            margin-bottom: 3rem;
+            margin-top: 3rem;
+        }
 
-/* optional niceties */
-.section-2col .content > :first-child { margin-top: 0; }
-.section-2col .content ul { margin-top: .5rem; }
+        .section-2col .title {
+            margin: 0;
+            /* remove default h2 margin */
+            text-align: left;
+            /* margin-left: 3rem; */
+            font-size: 1rem;
+        }
 
-/* Responsive: stack on small screens */
-@media (max-width: 720px) {
-  .section-2col {
-    grid-template-columns: 1fr;   /* title above content */
-    row-gap: .5rem;
-  }
-}
-.section-2col {
-  display: grid;
-  grid-template-columns: 220px 1fr; /* left title | right content */
-  column-gap: 2rem;
-  align-items: start;
-  padding: 1rem 0;              /* add vertical padding */
-  margin-bottom: 2rem;          /* space below section */
-  border-bottom: 1px solid #ccc; /* horizontal line */
-}
+        .section-2col .content {
+            text-align: left;
+        }
 
-/* remove line after last section */
-.section-2col:last-of-type {
-  border-bottom: none;
-}
+        /* optional niceties */
+        .section-2col .content> :first-child {
+            margin-top: 0;
+        }
+
+        .section-2col .content ul {
+            margin-top: .5rem;
+        }
+
+        /* Responsive: stack on small screens */
+        @media (max-width: 720px) {
+            .section-2col {
+                grid-template-columns: 1fr;
+                /* title above content */
+                row-gap: .5rem;
+            }
+        }
+
+        .section-2col {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            /* left title | right content */
+            column-gap: 2rem;
+            align-items: start;
+            padding: 1rem 0;
+            /* add vertical padding */
+            margin-bottom: 2rem;
+            /* space below section */
+            border-bottom: 1px solid #ccc;
+            /* horizontal line */
+        }
+
+        /* remove line after last section */
+        .section-2col:last-of-type {
+            border-bottom: none;
+        }
 
 
-.highlight {
+        .highlight {
             color: #ffcc00;
         }
+
         .dimmed {
             opacity: 0.6;
+            font-weight: lighter;
         }
+
         .normal {
             opacity: 1;
         }
+
         /* Center everything */
         .image-container {
             position: relative;
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            min-height: 200px; /* space reserved while loading */
+            min-height: 200px;
+            /* space reserved while loading */
         }
 
         /* Ensure image starts at very top */
@@ -113,8 +137,10 @@
             max-width: 100%;
             width: auto;
             height: auto;
-            opacity: 0; /* Start invisible */
-            transition: opacity 1s ease; /* Smooth fade */
+            opacity: 0;
+            /* Start invisible */
+            transition: opacity 1s ease;
+            /* Smooth fade */
         }
 
         /* Remove old spinner animation - using canvas-based loader now */
@@ -124,7 +150,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #000; /* Match your site background */
+            background: #000;
+            /* Match your site background */
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -133,108 +160,164 @@
             visibility: visible;
             transition: opacity 1s ease, visibility 1s ease;
         }
+
         a {
             color: black;
-            font-weight: bold;
+            /* font-weight: bold; */
+            /* font-weight: lighter; */
+            font-style: italic;
             text-decoration: none;
         }
 
         a:hover {
-          background-color: #a3edd1;
-          color: black;
-          /* Remove glow, keep clean look */
-          box-shadow: none;
+            background-color: #a3edd1;
+            color: black;
+            /* Remove glow, keep clean look */
+            box-shadow: none;
         }
- 
+
+        #publications p {
+            margin-bottom: 1.5em;
+            /* space between publications */
+        }
+
+        #publications p a {
+            display: inline-block;
+            margin-bottom: 0.3em;
+            /* space between title and authors */
+            /* optional: makes titles stand out more */
+        }
+
+        #posters p a {
+            display: inline-block;
+            margin-bottom: 0.3em;
+        }
+
+        #posters p {
+            margin-bottom: 1.5em;
+            /* space between publications */
+        }
     </style>
 </head>
+
 <body>
-  <div id="loadingOverlay">
-    <div class="ring-loader">
-        <canvas id="loadingCanvas"></canvas>
+    <div id="loadingOverlay">
+        <div class="ring-loader">
+            <canvas id="loadingCanvas"></canvas>
+        </div>
     </div>
-</div>
-<div id="mainContent" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
-<div class="container">
-  <div class="image-container">
-    <img src="img/startup.jpg" class="startup-image" id="startupImage">
-  </div>
-<section class="section-2col">
-    <h2 class="title">OVERVIEW</h2>
-    <div class="content">
-      <p>
-        I'm a research ML engineer at
-        <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>, focused on developing deep learning systems for breast cancer prognosis.
-        I previously worked as a deep learning researcher at NYU Langone Health and a data engineer at Revelio Labs.
-      </p>
+    <div id="mainContent" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
+        <div class="container">
+            <div class="image-container">
+                <img src="img/main.jpg" class="startup-image" id="startupImage">
+            </div>
+            <!-- <section class="section-2col">
+                <h2 class="title">OVERVIEW</h2>
+                <div class="content">
+                    <p>
+                        I'm a research ML engineer at
+                        <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>, focused on developing deep learning systems for breast cancer prognosis.
+                        I previously worked as a deep learning researcher at NYU Langone Health and a data engineer at Revelio Labs.
+                    </p>
+                </div>
+            </section> -->
+            <section style="margin-top: 3rem; border-bottom: none; margin-bottom: 2rem;" class="section-2col">
+                <!-- <p></p> -->
+                <p style="font-size: 0.8rem;font-weight: lighter; font-style: italic;">
+                    Co-founded by Jan Witowski, MD, PhD, and AI researcher Krzysztof Geras, with AI pioneer Yann LeCun as an advisor, Ataraxis AI is focused on better cancer risk assessment.
+                </p>
+                <h1 class="title" style="font-size: 1.4rem;font-weight: lighter;">
+                    <!-- <br>
+                    <br>
+                    <br> -->
+                    &emsp;&emsp;
+                    I am a machine learning research engineer at Ataraxis AI, where I build deep learning systems to help predict breast cancer outcomes and support better patient care.
+                </h1>
+            </section>
+
+            <section class="section-2col">
+
+            </section>
+
+            <section class="section-2col">
+                <h2 class="title">MY STORY</h2>
+                <div class="content">
+                    <p style="font-weight: lighter;">I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health. As a founding member of a five-person team, I helped launch the company and contributed to securing $4M in seed funding. Since then, I have played a central role in developing and validating multimodal histopathology models using data from more than 15 hospitals. I was also the second author on preliminary results that proved instrumental in raising over $20M in Series A funding.</p>
+                    <p>
+                        <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> |
+                        <a href="https://www.biopharmatrend.com/post/996-ataraxis-ai-steps-forward-in-precision-cancer-care-with-4-million-in-seed-funding/" target="_blank">Biopharma Trend</a> |
+                        <a href="https://www.forbes.com/sites/alexknapp/2024/10/31/this-ai-model-could-keep-thousands-of-cancer-patients-from-getting-unnecessary-treatments/" target="_blank">Forbes</a>
+                    </p>
+                </div>
+            </section>
+
+            <section class="section-2col" id="publications">
+                <h2 class="title">SELECTED PUBLICATIONS</h2>
+                <div class="content">
+                    <p>
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10350195/" target="_blank">
+                            Improving Information Extraction from Pathology Reports using Named Entity Recognition
+                        </a>
+                        <br>
+                        <span class="dimmed" style="text-decoration: underline;">Ken Zeng</span>
+                        <span class="dimmed">, Tarun Dutt, Jan Witowski, GV Kranthi Kiran, Frank Yeung, Michelle Kim, … Freya Schnabel, Linda M Pak, Yiqiu Shen, Krzysztof J Geras</span>
+                    </p>
+                    <p><a href="https://openreview.net/pdf?id=opIx2SYw7r" target="_blank">
+                            Squeezing performance from pathology foundation models with chained hyperparameter searches
+                        </a><br> <span class="dimmed">Joseph Cappadona,</span> <span class="dimmed" style="text-decoration: underline;">Ken Zeng</span>
+                        <span class="dimmed">, Carlos Fernandez-Granda, Jan Witowski, Yann LeCun, Krzysztof J Geras</span>
+                    </p>
+                    <p><a href="https://arxiv.org/pdf/2410.21256" target="_blank">
+                            Multimodal Risk Prediction Model for Breast Cancer Recurrence
+                        </a><br> <span class="dimmed">Jan Witowski,</span> <span class="dimmed" style="text-decoration: underline;">Ken Zeng</span>
+                        <span class="dimmed">, Joseph Cappadona, … Francisco J Esteva, Lajos Pusztai, Yann LeCun, Krzysztof J Geras</span></p>
+                </div>
+            </section>
+
+            <section class="section-2col" id="posters">
+                <h2 class="title">POSTERS</h2>
+                <div class="content">
+
+                    <p>
+                        <a href="posters/SABCS 2024 - Ataraxis Breast - Poster - Cleaned.pdf" target="_blank">
+                            Preliminary validation of a multi-modal AI for stratification of early-stage breast cancer patients utilizing a foundation model for digital pathology
+                        </a>
+                        <br>
+                        <span class="dimmed">San Antonio Breast Cancer Symposium 2024</span>
+                    </p>
+                    <p>
+                        <a href="posters/NeurIPS - Poster.pdf" target="_blank">Squeezing performance from pathology foundation models with
+                            chained hyperparameter searches</a>
+                        <br>
+                        <span class='dimmed'>NeurIPS Self-Supervised Learning 2024</span>
+                    </p>
+                    <p>
+                        <a href="posters/ESMO Breast 2025 - Kestrel - Poster.pdf" target="_blank">
+                            AI foundation model for breast cancer characterization and outcome prediction
+                        </a>
+                        <br>
+                        <span class="dimmed">European Society For Medical Oncology 2025</span>
+                    </p>
+                </div>
+            </section>
+
+            <section class="section-2col">
+                <h2 class="title">CONTACT</h2>
+                <div class="content">
+                    <p>Email: <a style='font-weight: bold; font-style: normal;' href="mailto:kengaryzeng@gmail.com">kengaryzeng@gmail.com</a></p>
+                    <p>
+                        <a style='font-weight: bold; font-style: normal;' href="https://twitter.com/KenZeng56288846">Twitter</a> |
+                        <a style='font-weight: bold; font-style: normal;' href="https://github.com/kenzeng24">GitHub</a> |
+                        <a style='font-weight: bold; font-style: normal;' href="https://www.linkedin.com/in/ken-zeng-1b4b0a14b/">LinkedIn</a>
+                    </p>
+                </div>
+            </section>
+        </div>
     </div>
-  </section>
 
-  <section class="section-2col">
-    <h2 class="title">MY STORY</h2>
-    <div class="content">
-      <p>I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health. As a founding member of a five-person team, I helped launch the company and contributed to securing $4M in seed funding. Since then, I have played a central role in developing and validating multimodal histopathology models using data from more than 15 hospitals. I was also the second author on preliminary results that proved instrumental in raising over $20M in Series A funding..</p>
-      <p>
-        <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> |
-        <a href="https://www.biopharmatrend.com/post/996-ataraxis-ai-steps-forward-in-precision-cancer-care-with-4-million-in-seed-funding/" target="_blank">Biopharma Trend</a> |
-        <a href="https://www.forbes.com/sites/alexknapp/2024/10/31/this-ai-model-could-keep-thousands-of-cancer-patients-from-getting-unnecessary-treatments/" target="_blank">Forbes</a>
-      </p>
-    </div>
-  </section>
-
-  <section class="section-2col" id="publications">
-    <h2 class="title">SELECTED PUBLICATIONS</h2>
-    <div class="content">
-          <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10350195/" target="_blank">
-            Improving Information Extraction from Pathology Reports using Named Entity Recognition
-          </a></p>
-          <p style="margin-top: -0.5rem;"><span class="normal"><b>Ken G Zeng</b></span>
-             <span class="dimmed">, Tarun Dutt, Jan Witowski, GV Kranthi Kiran, Frank Yeung, Michelle Kim, … Freya Schnabel, Linda M Pak, Yiqiu Shen, Krzysztof J Geras</span>
-          </p>
-
-  
-
-          <p><a href="https://openreview.net/pdf?id=opIx2SYw7r" target="_blank">
-            Squeezing performance from pathology foundation models with chained hyperparameter searches
-          </a></p>
-          <p><span class="dimmed">Joseph Cappadona,</span> <span class="normal">Ken Zeng</span>
-             <span class="dimmed">, Carlos Fernandez-Granda, Jan Witowski, Yann LeCun, Krzysztof J Geras</span>
-          </p>
-          <p><a href="https://arxiv.org/pdf/2410.21256" target="_blank">
-            Multimodal Risk Prediction Model for Breast Cancer Recurrence
-          </a></p>
-          <p><span class="dimmed">Jan Witowski,</span> <span class="normal">Ken Zeng</span>
-             <span class="dimmed">, Joseph Cappadona, … Francisco J Esteva, Lajos Pusztai, Yann LeCun, Krzysztof J Geras</span>
-          </p>
-    </div>
-  </section>
-
-  <section class="section-2col" id="Posters">
-    <h2 class="title">POSTERS</h2>
-    <div class="content">
-
-      <p><a href="posters/SABCS 2024 - Ataraxis Breast - Poster - Cleaned.pdf" target="_blank">San Antonio Breast Cancer Symposium 2024</a></p>
-      <p><a href="posters/NeurIPS - Poster.pdf" target="_blank">NeurIPS Self-Supervised Learning 2024</a></p>
-      <p><a href="posters/ESMO Breast 2025 - Kestrel - Poster.pdf" target="_blank">European Society For Medical Oncology 2025</a></p>
-    </div>
-  </section>
-
-  <section class="section-2col">
-    <h2 class="title">CONTACT</h2>
-    <div class="content">
-      <p>Email: <a href="mailto:kengaryzeng@gmail.com">kengaryzeng@gmail.com</a></p>
-      <p>
-        <a href="https://twitter.com/KenZeng56288846">Twitter</a> |
-        <a href="https://github.com/kenzeng24">GitHub</a> |
-        <a href="https://www.linkedin.com/in/ken-zeng-1b4b0a14b/">LinkedIn</a>
-      </p>
-    </div>
-  </section>
-</div>
-</div>
-
-<!-- Remove the hidden trigger image since we have a real image now -->
+    <!-- Remove the hidden trigger image since we have a real image now -->
 
 </body>
 <script src="spinning_wheel.js"></script>
+
 </html>
