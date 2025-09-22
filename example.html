@@ -75,7 +75,7 @@
             align-items: start;
             padding: 1rem 0;
             /* add vertical padding */
-            margin-bottom: 2rem;
+            /* margin-bottom: 2rem; */
             /* space below section */
             border-bottom: 1px solid #ccc;
             /* horizontal line */
@@ -150,7 +150,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #000;
+            background: rgb(15, 15, 15);
             /* Match your site background */
             z-index: 1000;
             display: flex;
@@ -170,7 +170,8 @@
         }
 
         a:hover {
-            background-color: #a3edd1;
+            background-color: rgba(120, 197, 132, 0.6);
+            /* opacity: 0.6; */
             color: black;
             /* Remove glow, keep clean look */
             box-shadow: none;
@@ -197,6 +198,25 @@
             margin-bottom: 1.5em;
             /* space between publications */
         }
+
+        /* Make images fit within their column */
+        .section-2col img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Optimize image loading */
+        /* img {
+            image-rendering: optimizeQuality;
+            image-rendering: -webkit-optimize-contrast;
+        } */
+
+        /* Reduce animations during loading */
+        .reduce-motion {
+            animation: none !important;
+            transition: none !important;
+        }
     </style>
 </head>
 
@@ -209,7 +229,7 @@
     <div id="mainContent" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
         <div class="container">
             <div class="image-container">
-                <img src="img/main.jpg" class="startup-image" id="startupImage">
+                <img src="img/banner.jpg" class="startup-image" id="startupImage">
             </div>
             <!-- <section class="section-2col">
                 <h2 class="title">OVERVIEW</h2>
@@ -221,28 +241,44 @@
                     </p>
                 </div>
             </section> -->
-            <section style="margin-top: 3rem; border-bottom: none; margin-bottom: 2rem;" class="section-2col">
-                <!-- <p></p> -->
-                <p style="font-size: 0.8rem;font-weight: lighter; font-style: italic;">
+            <!-- style="margin-top: 5rem; border-bottom: none; margin-bottom: 2rem;"-->
+            <section class="section-2col">
+                <!-- <div class="image-container">
+                    <img src="img/profile.png">
+                </div> -->
+                <div></div>
+                <div class="content">
+                    <br>
+                    <br>
+                    <h1 style="font-size: 1.4rem;font-weight: lighter; margin: 0 0 1rem 0;">
+                        &emsp;&emsp;
+                        I am a machine learning research engineer at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>, where I build deep learning systems to help predict breast cancer outcomes and support better patient care.
+                    </h1>
+                    <br>
+                </div>
+            </section>
+
+            <section class="section-2col">
+                <p style="font-size: 0.8rem;font-weight: lighter; font-style: italic; ">
                     Co-founded by Jan Witowski, MD, PhD, and AI researcher Krzysztof Geras, with AI pioneer Yann LeCun as an advisor, Ataraxis AI is focused on better cancer risk assessment.
                 </p>
-                <h1 class="title" style="font-size: 1.4rem;font-weight: lighter;">
-                    <!-- <br>
-                    <br>
-                    <br> -->
-                    &emsp;&emsp;
-                    I am a machine learning research engineer at Ataraxis AI, where I build deep learning systems to help predict breast cancer outcomes and support better patient care.
-                </h1>
-            </section>
-
-            <section class="section-2col">
-
-            </section>
-
-            <section class="section-2col">
-                <h2 class="title">MY STORY</h2>
                 <div class="content">
-                    <p style="font-weight: lighter;">I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health. As a founding member of a five-person team, I helped launch the company and contributed to securing $4M in seed funding. Since then, I have played a central role in developing and validating multimodal histopathology models using data from more than 15 hospitals. I was also the second author on preliminary results that proved instrumental in raising over $20M in Series A funding.</p>
+                    <div class="image-container">
+                        <img src="img/example_coloured.png" alt="Example visualization">
+                    </div>
+                    <br>
+                </div>
+            </section>
+
+            <section class="section-2col" style="border-bottom: none;">
+                <h2 class="title"></h2>
+                <div class="content">
+                    <p style="font-weight: lighter;">
+                        &emsp;&emsp;I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health.
+                        As a founding member of a five-person team, I helped launch the company and contributed to securing $4M in seed funding.
+                        Since then, I have played a central role in developing and validating multimodal histopathology models using data from more than 15 hospitals.
+                        I was also the second author on preliminary results that proved instrumental in raising over $20M in Series A funding.
+                    </p>
                     <p>
                         <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> |
                         <a href="https://www.biopharmatrend.com/post/996-ataraxis-ai-steps-forward-in-precision-cancer-care-with-4-million-in-seed-funding/" target="_blank">Biopharma Trend</a> |
@@ -250,6 +286,8 @@
                     </p>
                 </div>
             </section>
+
+            <img src="img/header.png" alt="Header image" style="position: relative; width: 100%; max-width: 800px; margin: 0 auto;min-height: 150px;">
 
             <section class="section-2col" id="publications">
                 <h2 class="title">SELECTED PUBLICATIONS</h2>
