@@ -6,55 +6,105 @@
     <title>Layered Flow Animation</title>
     <link rel="stylesheet" href="main.css">
     <style>
-        /* Two-column section layout */
+        /* Single column layout */
         .container {
-            max-width: 1000px;
-            margin: auto;
+            max-width: 800px;
+            /* margin: auto; */
             padding: 2rem;
             position: absolute;
             top: 10%;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
+            text-align: left;
         }
 
-        .section-2col {
-            display: grid;
-            grid-template-columns: 4fr 5fr;
-            column-gap: 0rem;
-            align-items: start;
+        .section {
+            padding-top: 0.5rem;
         }
 
-        .section-2col .title {
+        .section .title {
             margin: 0;
             text-align: left;
         }
 
-        .section-2col .title h1 {
+        .section .title h1 {
             margin: 0;
             /* removes the default top/bottom margin */
             line-height: 1.05;
             /* optional: keeps the big text snug */
+            margin-bottom: 0.25rem;
         }
 
-        .section-2col .content {
+        .section h1 {
+            margin: 0.5rem 0 0.25rem 0;
+            /* top: 0.5rem, right: 0, bottom: 0.25rem, left: 0 */
+            line-height: 1.05;
+        }
+
+        .section .content {
             text-align: left;
+            margin-top: 0.5rem;
         }
 
-        /* Responsive: stack on small screens */
-        @media (max-width: 768px) {
-            .section-2col {
-                grid-template-columns: 1fr;
-                row-gap: 2rem;
-                text-align: center;
-            }
+        .section .content p {
+            margin: 0.25rem 0;
+        }
 
+        .section .content button {
+            margin-top: 1rem;
+        }
+
+        .arrow {
+            font-family: "Helvetica", monospace;
+            font-size: 25px;
+            font-weight: light;
+        }
+
+        /* Scale down when text would wrap - based on longest line */
+        /* "Interested in predicting patient outcomes using deep learning" is ~55 characters */
+        /* At 25px font size, this needs roughly 900-950px width */
+        @media (max-width: 950px) {
             .container {
                 position: static;
                 transform: none;
-                top: auto;
-                left: auto;
-                margin-top: 10vh;
+                top: 5%;
+                left: 0;
+                width: 100%;
+                padding: 4rem;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .section h1 {
+                font-size: 45px !important;
+            }
+
+            .section .content p {
+                font-size: 18px !important;
+            }
+
+            .section .content button {
+                font-size: 18px !important;
+            }
+        }
+
+        /* Further scale down for very small screens */
+        @media (max-width: 500px) {
+            .container {
+                padding: 2rem;
+            }
+
+            .section h1 {
+                font-size: 35px !important;
+            }
+
+            .section .content p {
+                font-size: 16px !important;
+            }
+
+            .section .content button {
+                font-size: 16px !important;
             }
         }
     </style>
@@ -62,21 +112,15 @@
 
 <body>
     <div class="container">
-        <section class="section-2col" style="border-top: 1px solid #f0f0f0; padding-top: 1rem;">
-            <div class="title">
-                <h1 style="color: #f0f0f0; font-size: 80px; font-weight: bold;">Ken Zeng</h1>
-                <!-- <p style="color: #f0f0f0; font-size: 20px; margin: 0;">Machine Learning Research</p>
-                <p style="color: #f0f0f0; font-size: 20px; margin: 0;">at Ataraxis AI</p> -->
-            </div>
-            <div class="content">
-                <p style="color: #f0f0f0; font-size: 20px; margin: 0; font-style: italic;">Breast cancer</p>
-                <p style="color: #f0f0f0; font-size: 20px; margin: 0;">machine learning</p>
-                <p style="color: #f0f0f0; font-size: 20px; margin: 0;">research engineer</p>
-                <!-- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; -->
-                <p style="color: #f0f0f0; font-size: 20px; margin: 0;">at Ataraxis AI</p>
+        <section class="section">
+            <h1 style="color: #f0f0f0; font-size: 65px;">Hi, I'm Ken Zeng, </h1>
+            <div class="content" style="margin-top: 1rem;">
+                <!-- <p style="color: #f0f0f0; font-size: 20px; margin: 0; font-style: italic;">Breast cancer</p> -->
+                <p style="color: #f0f0f0; font-size: 25px;">Machine Learning Research Engineer at Ataraxis AI</p>
+                <p style="color: #f0f0f0; font-size: 25px;">Interested in predicting patient outcomes using deep learning</p>
+                <p style="color: #f0f0f0; font-size: 25px;"> </p>
                 <br>
-                <!-- ↳ ↘→ →-->
-                <button id="cta" style="font-size: 20px;" onclick="window.location.href='example.html'">■ Learn More</button>
+                <button id="cta" style="font-size: 25px;" onclick="window.location.href='example.html'"><span class="arrow">&rarr;</span> Learn more about me </button>
             </div>
         </section>
     </div>
