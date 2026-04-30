@@ -8,13 +8,12 @@
     <style>
         /* Single column layout */
         .container {
-            max-width: 800px;
-            /* margin: auto; */
-            padding: 2rem;
+            max-width: 400px;
+            padding: 1.5rem;
             position: absolute;
-            top: 5%;
-            left: 5%;
-            width: 90%;
+            top: 3%;
+            left: 3%;
+            width: 60%;
             text-align: left;
         }
 
@@ -106,22 +105,138 @@
                 font-size: 16px !important;
             }
         }
+
+        /* Responsive button text that scales with green block */
+        #explore-button {
+            font-size: clamp(12px, 8vw, 16px) !important;
+        }
+
+        #explore-button .arrow {
+            font-size: clamp(20px, 12vw, 35px) !important;
+        }
+
+        #explore-button .main-text {
+            font-size: clamp(10px, 6vw, 16px) !important;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <section class="section">
-            <h1 style="color: #f0f0f0; font-size: 55px;">Hi, I'm Ken Zeng, </h1>
-            <div class="content" style="margin-top: 1rem;">
-                <!-- <p style="color: #f0f0f0; font-size: 20px; margin: 0; font-style: italic;">Breast cancer</p> -->
-                <p style="color: #f0f0f0; font-size: 20px;">Machine Learning Research Engineer at Ataraxis AI</p>
-                <p style="color: #f0f0f0; font-size: 20px;">Interested in predicting patient outcomes using deep learning</p>
-                <p style="color: #f0f0f0; font-size: 20px;"> </p>
-                <button id="cta" style="font-size: 20px;" onclick="window.location.href='example.html'">Learn more about me </button>
+            <h1 style="color: #f0f0f0; font-size: 45px;">Ken Zeng</h1>
+            <div class="content" style="margin-top: 0.25rem;">
+                <button id="explore-cta" style="
+                    font-family: 'Press Start 2P', Helvetica;
+                    font-weight: bold;
+                    font-size: 20px;
+                    color: #b87c45;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    padding: 8px 0;
+                    margin-top: 20px;
+                    transition: all 0.3s ease;
+                    letter-spacing: 1px;
+                " onclick="window.location.href='example.html'" onmouseover="
+                    this.style.backgroundColor='#b87c45';
+                    this.style.color='black';
+                " onmouseout="
+                    this.style.backgroundColor='transparent';
+                    this.style.color='#b87c45';
+                "> &emsp;&emsp;EXPLORE <span style="font-size: 24px; margin-left: 10px;">→</span>&emsp;&emsp;</button>
+                <!-- Button moved to green strip -->
             </div>
         </section>
     </div>
+
+    <div class='mondrian-block' id="green-rectangle" style="
+     position: fixed;
+     top: 0;
+     left: 57%;
+     width: 3%;
+     height: 100vh;
+     background: 
+         radial-gradient(circle at 25% 15%, rgba(0,0,0,0.4) 0.4px, transparent 0.4px),
+         radial-gradient(circle at 45% 35%, rgba(255,255,255,0.6) 0.3px, transparent 0.3px),
+         radial-gradient(circle at 15% 65%, rgba(0,0,0,0.3) 0.5px, transparent 0.5px),
+         radial-gradient(circle at 75% 25%, rgba(255,255,255,0.4) 0.2px, transparent 0.2px),
+         radial-gradient(circle at 35% 75%, rgba(0,0,0,0.5) 0.3px, transparent 0.3px),
+         radial-gradient(circle at 65% 55%, rgba(255,255,255,0.3) 0.4px, transparent 0.4px),
+         radial-gradient(circle at 85% 45%, rgba(0,0,0,0.35) 0.25px, transparent 0.25px),
+         radial-gradient(circle at 55% 85%, rgba(255,255,255,0.5) 0.35px, transparent 0.35px),
+         radial-gradient(circle at 5% 35%, rgba(0,0,0,0.25) 0.45px, transparent 0.45px),
+         radial-gradient(circle at 95% 75%, rgba(255,255,255,0.35) 0.3px, transparent 0.3px),
+         linear-gradient(0deg, 
+             #fdf2d2 0%, 
+             #f0f0cc 100%
+         );
+     background-size: 
+         6px 6px, 8px 8px, 7px 7px, 5px 5px, 9px 9px,
+         10px 10px, 4px 4px, 11px 11px, 8px 8px, 6px 6px,
+         100% 100%, 100% 100%, 100% 100%, 100% 100%;
+     z-index: -2;
+     opacity: 0.9;
+     "></div>
+
+    <div class='mondrian-block' id="green-rectangle" style="
+        position: fixed;
+        top: 0;
+        left: 60%;
+        width: 20%;
+        height: 100vh;
+        background: 
+            radial-gradient(circle at 25% 15%, rgba(0,0,0,0.4) 0.4px, transparent 0.4px),
+            radial-gradient(circle at 45% 35%, rgba(255,255,255,0.6) 0.3px, transparent 0.3px),
+            radial-gradient(circle at 15% 65%, rgba(0,0,0,0.3) 0.5px, transparent 0.5px),
+            radial-gradient(circle at 75% 25%, rgba(255,255,255,0.4) 0.2px, transparent 0.2px),
+            radial-gradient(circle at 35% 75%, rgba(0,0,0,0.5) 0.3px, transparent 0.3px),
+            radial-gradient(circle at 65% 55%, rgba(255,255,255,0.3) 0.4px, transparent 0.4px),
+            radial-gradient(circle at 85% 45%, rgba(0,0,0,0.35) 0.25px, transparent 0.25px),
+            radial-gradient(circle at 55% 85%, rgba(255,255,255,0.5) 0.35px, transparent 0.35px),
+            radial-gradient(circle at 5% 35%, rgba(0,0,0,0.25) 0.45px, transparent 0.45px),
+            radial-gradient(circle at 95% 75%, rgba(255,255,255,0.35) 0.3px, transparent 0.3px),
+            linear-gradient(0deg, 
+                #3a4a3f 0%, 
+                #53745e 100%
+            );
+        background-size: 
+            6px 6px, 8px 8px, 7px 7px, 5px 5px, 9px 9px,
+            10px 10px, 4px 4px, 11px 11px, 8px 8px, 6px 6px,
+            100% 100%, 100% 100%, 100% 100%, 100% 100%;
+        z-index: -2;
+        opacity: 0.9;
+        "></div>
+
+
+    <div class='mondrian-block' id="green-rectangle" style="
+    position: fixed;
+    top: 0;
+    left: 80%;
+    width: 15%;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 25% 15%, rgba(0,0,0,0.4) 0.4px, transparent 0.4px),
+        radial-gradient(circle at 45% 35%, rgba(255,255,255,0.6) 0.3px, transparent 0.3px),
+        radial-gradient(circle at 15% 65%, rgba(0,0,0,0.3) 0.5px, transparent 0.5px),
+        radial-gradient(circle at 75% 25%, rgba(255,255,255,0.4) 0.2px, transparent 0.2px),
+        radial-gradient(circle at 35% 75%, rgba(0,0,0,0.5) 0.3px, transparent 0.3px),
+        radial-gradient(circle at 65% 55%, rgba(255,255,255,0.3) 0.4px, transparent 0.4px),
+        radial-gradient(circle at 85% 45%, rgba(0,0,0,0.35) 0.25px, transparent 0.25px),
+        radial-gradient(circle at 55% 85%, rgba(255,255,255,0.5) 0.35px, transparent 0.35px),
+        radial-gradient(circle at 5% 35%, rgba(0,0,0,0.25) 0.45px, transparent 0.45px),
+        radial-gradient(circle at 95% 75%, rgba(255,255,255,0.35) 0.3px, transparent 0.3px),
+        linear-gradient(0deg, 
+            #ae8e5d 0%, 
+            #b87c45 100%
+        );
+    background-size: 
+        6px 6px, 8px 8px, 7px 7px, 5px 5px, 9px 9px,
+        10px 10px, 4px 4px, 11px 11px, 8px 8px, 6px 6px,
+        100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    z-index: -2;
+    opacity: 0.9;
+    "></div>
 
     <canvas id="canvas"></canvas>
     <script src="waves.js"></script>
