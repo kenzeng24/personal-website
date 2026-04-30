@@ -5,219 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ken Zeng</title>
-
-    <!-- Monospace Font & Minimal Styles -->
-    <style>
-        /* --- Two-column section layout --- */
-        body {
-            background-color: #f0f0f0;
-            color: #000;
-            /* background-color: #000;
-          color: #eee; */
-            font-family: Helvetica;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 0 2rem 2rem 2rem;
-            /* top=0, right/bottom/left=2rem */
-        }
-
-        .section-2col {
-            display: grid;
-            grid-template-columns: 500px 1fr;
-            /* left title width | right content fills */
-            column-gap: 2rem;
-            align-items: start;
-            /* top-align multi-line content */
-            margin-bottom: 3rem;
-            margin-top: 3rem;
-        }
-
-        .section-2col .title {
-            margin: 0;
-            /* remove default h2 margin */
-            text-align: left;
-            /* margin-left: 3rem; */
-            font-size: 1rem;
-        }
-
-        .section-2col .content {
-            text-align: left;
-        }
-
-        /* optional niceties */
-        .section-2col .content> :first-child {
-            margin-top: 0;
-        }
-
-        .section-2col .content ul {
-            margin-top: .5rem;
-        }
-
-        /* Responsive: stack on small screens */
-        @media (max-width: 720px) {
-            .section-2col {
-                grid-template-columns: 1fr;
-                /* title above content */
-                row-gap: .5rem;
-            }
-        }
-
-        .section-2col {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            /* left title | right content */
-            column-gap: 2rem;
-            align-items: start;
-            padding: 1rem 0;
-            /* add vertical padding */
-            /* margin-bottom: 2rem; */
-            /* space below section */
-            border-bottom: 1px solid #ccc;
-            /* horizontal line */
-        }
-
-        /* remove line after last section */
-        .section-2col:last-of-type {
-            border-bottom: none;
-        }
-
-
-        .highlight {
-            color: #ffcc00;
-        }
-
-        .dimmed {
-            opacity: 0.6;
-            font-weight: lighter;
-        }
-
-        .normal {
-            opacity: 1;
-        }
-
-        /* Center everything */
-        .image-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            min-height: 200px;
-            /* space reserved while loading */
-        }
-
-        /* Ensure image starts at very top */
-        .startup-image {
-            display: block;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Spinning wheel loader */
-        .ring-loader {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #loadingCanvas {
-            display: block;
-        }
-
-        /* Actual image hidden by default */
-        .startup-image {
-            max-width: 100%;
-            width: auto;
-            height: auto;
-            opacity: 0;
-            /* Start invisible */
-            transition: opacity 1s ease;
-            /* Smooth fade */
-        }
-
-        /* Remove old spinner animation - using canvas-based loader now */
-        #loadingOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgb(15, 15, 15);
-            /* Match your site background */
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 1s ease, visibility 1s ease;
-        }
-
-        a {
-            color: black;
-            /* font-weight: bold; */
-            /* font-weight: lighter; */
-            font-style: italic;
-            text-decoration: none;
-        }
-
-        a:hover {
-            background-color: rgba(120, 197, 132, 0.6);
-            /* opacity: 0.6; */
-            color: black;
-            /* Remove glow, keep clean look */
-            box-shadow: none;
-        }
-
-        #publications p {
-            margin-bottom: 1.5em;
-            /* space between publications */
-        }
-
-        #publications p a {
-            display: inline-block;
-            margin-bottom: 0.3em;
-            /* space between title and authors */
-            /* optional: makes titles stand out more */
-        }
-
-        #posters p a {
-            display: inline-block;
-            margin-bottom: 0.3em;
-        }
-
-        #posters p {
-            margin-bottom: 1.5em;
-            /* space between publications */
-        }
-
-        /* Make images fit within their column */
-        .section-2col img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Optimize image loading */
-        /* img {
-            image-rendering: optimizeQuality;
-            image-rendering: -webkit-optimize-contrast;
-        } */
-
-        /* Reduce animations during loading */
-        .reduce-motion {
-            animation: none !important;
-            transition: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="main_page.css">
 </head>
 
 <body>
@@ -252,7 +40,9 @@
                     <br>
                     <h1 style="font-size: 1.4rem;font-weight: lighter; margin: 0 0 1rem 0;">
                         &emsp;&emsp;
-                        I am a machine learning research engineer at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>, where I build deep learning systems to help predict breast cancer outcomes and support better patient care.
+                        I build machine learning systems to predict cancer outcomes and help guide treatment decisions.
+                        I am a machine learning research engineer at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>,
+                        where we develop multimodal models using histopathology and clinical data.
                     </h1>
                     <br>
                 </div>
@@ -260,7 +50,7 @@
 
             <section class="section-2col">
                 <p style="font-size: 0.8rem;font-weight: lighter; font-style: italic; ">
-                    Co-founded by Jan Witowski (MD, PhD) and Krzysztof Geras (AI researcher), with AI pioneer Yann LeCun as advisor, Ataraxis is revolutionizing cancer risk assessment through AI.
+                    Ataraxis AI, co-founded by Jan Witowski and Krzysztof Geras, develops machine learning models to predict cancer outcomes and guide treatment decisions.
                 </p>
                 <div class="content">
                     <div class="image-container">
@@ -275,9 +65,8 @@
                 <div class="content">
                     <p style="font-weight: lighter;">
                         &emsp;&emsp;I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health.
-                        As a founding member of a five-person team, I helped launch the company and contributed to securing $4M in seed funding.
-                        Since then, I have played a central role in developing and validating multimodal histopathology models using data from more than 15 hospitals.
-                        I was also the second author on preliminary results that proved instrumental in raising over $20M in Series A funding.
+                        As part of a small founding team, I helped develop and validate multimodal pathology models across data from 15+ hospitals.
+                        This work contributed to early results that supported $4M in seed funding and later a $20M+ Series A.
                     </p>
                     <p>
                         <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> |
@@ -286,25 +75,35 @@
                     </p>
                 </div>
             </section>
-
-            <section class="section-2col" style="border-bottom: none;">
-                <h2 class="title">RESEARCH FOCUS</h2>
-                <div class="content">
-                    <p style="font-weight: lighter;">
-                        I develop deep learning models that predict patient outcomes directly from histopathology images and identify which patients are most likely to benefit from specific cancer treatments.
-                    </p>
-
-                    <ul style="font-weight: lighter; margin-left: 1rem;">
-                        <li>Deep learning models for whole-slide histopathology images</li>
-                        <li>Survival analysis for time-to-event modeling in oncology</li>
-                        <li>Causal inference methods to estimate treatment benefit from observational data</li>
-                        <li>Calibration methods to align AI predictions with real-world outcomes</li>
-                    </ul>
-
-                    <p style="font-weight: lighter; font-style: italic; margin-top: 2rem; max-width: 40rem;">
-                        My research bridges clinical practice and machine learning by turning predictive models into tools that support real-world clinical decision-making and ultimately improve patient outcomes.
+            <section class="section-2col" style="border-bottom: none; align-items: stretch; column-gap: 0;">
+                <div style="
+                    background-color: #1a1a1a;
+                    color: white;
+                    padding: 1.5rem;
+                ">
+                    <h2 class="title">RESEARCH GOAL</h2>
+                    <p style="font-weight: lighter; margin: 1rem 0 0 0;">
+                        I build models to identify which patients benefit from treatment and which can safely avoid it.
                     </p>
                 </div>
+                <div class="content">
+                    <img src="img/thumbnail_with_gradient_51552_20243_1200_675.png" alt="Histopathology image" style="display: block; width: 100%; height: 100%; object-fit: cover; margin: 0;">
+                </div>
+            </section>
+
+            <section class="section-2col">
+                <h2 class="title">RESEARCH FOCUS</h2>
+
+                <div>
+                    <p style="font-weight: lighter; margin: 0 auto;">
+                        My work focuses on building clinically reliable AI systems for oncology.
+                        I work on survival analysis, causal inference, and calibration methods to ensure model predictions reflect real-world outcomes.
+                    </p>
+                    <p style="font-weight: lighter;">
+                        A core part of this is developing multimodal models that combine histopathology images with clinical data to capture both tissue-level and patient-level signals.
+                    </p>
+                </div>
+
             </section>
 
             <img src="img/header.png" alt="Header image" style="display: block; max-width: 100%; height: auto; margin: 0 auto;">

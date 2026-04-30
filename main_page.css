@@ -1,0 +1,217 @@
+/* --- Two-column section layout --- */
+body {
+    background-color: #f0f0f0;
+    color: #000;
+    /* background-color: #000;
+    color: #eee; */
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 2rem 2rem 2rem;
+    /* top=0, right/bottom/left=2rem */
+}
+
+.section-2col {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 2rem;
+    align-items: start;
+    padding: 2rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.section-2col:last-of-type {
+    border-bottom: none;
+}
+
+.section-2col .title {
+    margin: 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.section-2col .content {
+    text-align: left;
+}
+
+.section-2col .content> :first-child {
+    margin-top: 0;
+}
+
+.section-2col .content ul {
+    margin-top: 0.5rem;
+}
+
+/* Tablet */
+@media (max-width: 720px) {
+    .container {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .section-2col {
+        grid-template-columns: 220px 1fr;
+        column-gap: 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem 0.75rem 0.75rem;
+    }
+
+    .section-2col {
+        grid-template-columns: 1fr;
+        row-gap: 0.5rem;
+    }
+
+    .section-2col .title {
+        font-size: 0.85rem;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .startup-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.highlight {
+    color: #ffcc00;
+}
+
+.dimmed {
+    opacity: 0.6;
+    font-weight: lighter;
+}
+
+.normal {
+    opacity: 1;
+}
+
+/* Center everything */
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 200px;
+    /* space reserved while loading */
+}
+
+/* Ensure image starts at very top */
+.startup-image {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Spinning wheel loader */
+.ring-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loadingCanvas {
+    display: block;
+}
+
+/* Actual image hidden by default */
+.startup-image {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    /* Start invisible */
+    transition: opacity 1s ease;
+    /* Smooth fade */
+}
+
+/* Remove old spinner animation - using canvas-based loader now */
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(15, 15, 15);
+    /* Match your site background */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+a {
+    color: black;
+    /* font-weight: bold; */
+    /* font-weight: lighter; */
+    font-style: italic;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgba(255, 208, 113, 0.6);
+    /* opacity: 0.6; */
+    color: black;
+    /* Remove glow, keep clean look */
+    box-shadow: none;
+}
+
+#publications p {
+    margin-bottom: 1.5em;
+    /* space between publications */
+}
+
+#publications p a {
+    display: inline-block;
+    margin-bottom: 0.3em;
+    /* space between title and authors */
+    /* optional: makes titles stand out more */
+}
+
+#posters p a {
+    display: inline-block;
+    margin-bottom: 0.3em;
+}
+
+#posters p {
+    margin-bottom: 1.5em;
+    /* space between publications */
+}
+
+/* Make images fit within their column */
+.section-2col img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Optimize image loading */
+/* img {
+    image-rendering: optimizeQuality;
+    image-rendering: -webkit-optimize-contrast;
+} */
+
+/* Reduce animations during loading */
+.reduce-motion {
+    animation: none !important;
+    transition: none !important;
+}
