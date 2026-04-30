@@ -1,0 +1,249 @@
+canvas {
+    position: fixed;
+    /* stay in place even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* behind all other content */
+    display: block;
+    /* remove default inline space */
+}
+
+html {
+    background-color: rgb(15, 15, 15);
+}
+
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+
+    color: #eee;
+    font-family: Helvetica;
+    scroll-behavior: smooth;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.block {
+    padding-left: 10vw;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    max-width: 700px;
+    margin: 1px auto;
+    padding: 5px;
+    min-height: 3rem;
+}
+
+.block:first-of-type {
+    background-color: transparent;
+    padding-top: 40vh;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Press Start 2P', Helvetica;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    text-shadow: 2px 2px 0px rgba(0, 255, 153, 0.3);
+}
+
+.block.visible {
+    background-color: transparent;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.line {
+    white-space: pre-wrap;
+    display: block;
+}
+
+.blinking-cursor {
+    display: inline-block;
+    animation: blink 0.6s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+#cta {
+    all: unset;
+    font-family: 'Press Start 2P', Helvetica;
+    font-size: 20px;
+    color: #00ff99;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 0 0px transparent;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+#cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#cta:hover {
+    background-color: #00ff99;
+    color: black;
+    /* Remove glow, keep clean look */
+    box-shadow: none;
+}
+
+#cta:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 255, 153, 0.5);
+}
+
+.button_block {
+    /* padding-left: 10vw; */
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    max-width: 700px;
+    margin: auto;
+    /* padding: 3px 3vw; */
+    min-height: 3rem;
+}
+
+.block.sub-description {
+    margin-bottom: -2rem;
+    /* Reduce space after sub-description */
+}
+
+/* ── Layout ──────────────────────────────────────────── */
+.container {
+    max-width: 400px;
+    padding: 1.5rem;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    width: 60%;
+}
+
+.section h1 {
+    font-size: 45px;
+    color: #f0f0f0;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.05;
+}
+
+.section .content {
+    margin-top: 0.25rem;
+}
+
+/* ── Explore button ──────────────────────────────────── */
+#explore-cta {
+    all: unset;
+    font-family: 'Press Start 2P', Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b87c45;
+    cursor: pointer;
+    padding: 8px 0;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#explore-cta:hover {
+    background-color: #b87c45;
+    color: black;
+}
+
+/* ── Mondrian strips (shared stippling pattern) ──────── */
+.mondrian-strip {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: -2;
+    opacity: 0.9;
+    background-image:
+        radial-gradient(circle at 25% 15%, rgba(0, 0, 0, 0.4) 0.4px, transparent 0.4px),
+        radial-gradient(circle at 45% 35%, rgba(255, 255, 255, 0.6) 0.3px, transparent 0.3px),
+        radial-gradient(circle at 15% 65%, rgba(0, 0, 0, 0.3) 0.5px, transparent 0.5px),
+        radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.4) 0.2px, transparent 0.2px),
+        radial-gradient(circle at 35% 75%, rgba(0, 0, 0, 0.5) 0.3px, transparent 0.3px),
+        radial-gradient(circle at 65% 55%, rgba(255, 255, 255, 0.3) 0.4px, transparent 0.4px),
+        radial-gradient(circle at 85% 45%, rgba(0, 0, 0, 0.35) 0.25px, transparent 0.25px),
+        radial-gradient(circle at 55% 85%, rgba(255, 255, 255, 0.5) 0.35px, transparent 0.35px),
+        radial-gradient(circle at 5% 35%, rgba(0, 0, 0, 0.25) 0.45px, transparent 0.45px),
+        radial-gradient(circle at 95% 75%, rgba(255, 255, 255, 0.35) 0.3px, transparent 0.3px);
+    background-size:
+        6px 6px, 8px 8px, 7px 7px, 5px 5px, 9px 9px,
+        10px 10px, 4px 4px, 11px 11px, 8px 8px, 6px 6px;
+}
+
+#strip-cream {
+    left: 57%;
+    width: 3%;
+    background-color: #f0f0cc;
+}
+
+#strip-green {
+    left: 60%;
+    width: 20%;
+    background-color: #3a4a3f;
+}
+
+#strip-orange {
+    left: 80%;
+    width: 15%;
+    background-color: #ae8e5d;
+}
+
+/* ── Center dot ──────────────────────────────────────── */
+#center-dot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    z-index: -5;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 950px) {
+    .container {
+        position: static;
+        width: 100%;
+        padding: 4rem;
+        box-sizing: border-box;
+    }
+
+    .section h1 {
+        font-size: 45px;
+    }
+
+    #explore-cta {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 2rem;
+    }
+
+    .section h1 {
+        font-size: 35px;
+    }
+
+    #explore-cta {
+        font-size: 16px;
+    }
+}
