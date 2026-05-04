@@ -12,7 +12,7 @@ canvas {
 }
 
 html {
-    background-color: rgb(15, 15, 15);
+    background-color: rgb(30, 31, 29);
 }
 
 body {
@@ -81,7 +81,6 @@ body {
     cursor: pointer;
     position: relative;
     z-index: 2;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     white-space: nowrap;
     box-shadow: 0 0 0px transparent;

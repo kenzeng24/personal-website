@@ -1,60 +1,3 @@
-// Basic ring loader (canvas)
-function createBasicRingLoader() {
-    const canvas = document.getElementById('loadingCanvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    const dpr = window.devicePixelRatio || 1;
-
-    function resize() {
-        const size = Math.min(window.innerWidth, window.innerHeight) * 0.3; // ~30vmin
-        canvas.style.width = size + 'px';
-        canvas.style.height = size + 'px';
-        canvas.width = Math.floor(size * dpr);
-        canvas.height = Math.floor(size * dpr);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    let rot = 0;
-    const lines = 18; // number of ellipses
-    const speed = 0.02; // radians/frame
-
-    function draw() {
-        const w = canvas.width / dpr;
-        const h = canvas.height / dpr;
-
-        // reset + clear
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        ctx.clearRect(0, 0, w, h);
-
-        // center and rotate the group
-        ctx.translate(w / 2, h / 2);
-        ctx.rotate(rot);
-
-        // ellipse radii (shape of the ring)
-        const rx = w * 0.42;
-        const ry = h * 0.28;
-
-        // bundle of rotated ellipses from 0..π
-        for (let i = 0; i < lines; i++) {
-            const theta = (i / (lines - 1)) * Math.PI;
-            const depth = 0.35 + 0.65 * Math.sin(theta); // simple shading
-            ctx.beginPath();
-            ctx.ellipse(0, 0, rx, ry, theta, 0, Math.PI * 2);
-            ctx.lineWidth = 1;
-            ctx.strokeStyle = `rgba(255,255,255,${depth})`;
-            ctx.stroke();
-        }
-
-        rot += speed;
-        requestAnimationFrame(draw);
-    }
-
-    requestAnimationFrame(draw);
-}
-
-// Create ring loader from spinning_wheel.js
 function createRingLoader() {
     const canvas = document.getElementById('loadingCanvas');
     if (!canvas) return;
@@ -169,8 +112,7 @@ function createRingLoader() {
             ctx.stroke();
         }
 
-        // Stop animation when overlay is hidden
-        if (document.getElementById('loadingOverlay').style.opacity === '0') {
+        if (overlayHidden) {
             animationActive = false;
         } else {
             requestAnimationFrame(draw);
@@ -179,6 +121,8 @@ function createRingLoader() {
 
     requestAnimationFrame(draw);
 }
+
+let overlayHidden = false;
 
 // Start the ring loader
 createRingLoader();
@@ -189,16 +133,13 @@ const mainContent = document.getElementById('mainContent');
 
 // Function to hide loading screen and show content
 function showPageContent() {
-    // Fade out the loading overlay
+    overlayHidden = true;
     loadingOverlay.style.opacity = '0';
+    mainContent.style.opacity = '1';
+    mainContent.style.transform = 'translateY(0)';
 
-    // After fade out is done (1s), hide it completely
     setTimeout(() => {
         loadingOverlay.style.display = 'none';
-
-        // Now fade in the page content
-        mainContent.style.opacity = '1';
-        mainContent.style.transform = 'translateY(0)';
     }, 1000);
 }
 

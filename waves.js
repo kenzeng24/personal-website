@@ -204,6 +204,16 @@ function animate(ts) {
 }
 requestAnimationFrame(animate);
 
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        animating = false;
+    } else {
+        animating = true;
+        lastTs = performance.now();
+        requestAnimationFrame(animate);
+    }
+});
+
 let resizeTimer = null;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
