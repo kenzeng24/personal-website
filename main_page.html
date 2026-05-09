@@ -14,12 +14,12 @@
             <canvas id="loadingCanvas"></canvas>
         </div>
     </div>
-    <div id="mainContent" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
+    <div id="mainContent" style="opacity: 0; transition: opacity 1s ease, transform 1s ease;">
         <div id="site-nav-wrapper">
             <nav id="site-nav">
-                <a href="#story">Story</a>
-                <a href="#publications">Publications</a>
-                <a href="#contact">Contact</a>
+                <a href="#story">ABOUT</a>
+                <a href="#publications">PUBLICATIONS</a>
+                <a href="#contact">CONTACT</a>
             </nav>
         </div>
         <div class="container">
@@ -71,8 +71,8 @@
                 <h2 class="title"></h2>
                 <div class="content">
                     <p style="font-weight: lighter;">
-                        &emsp;&emsp;I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health.
-                        As part of a small founding team, I helped develop and validate multimodal pathology models across data from 15+ hospitals.
+                        I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health.
+                        As part of a small founding team, I helped develop and validate breast cancer multimodal models across data from 15+ hospitals.
                         This work contributed to early results that supported $4M in seed funding and later a $20M+ Series A.
                     </p>
                     <p>
@@ -82,35 +82,32 @@
                     </p>
                 </div>
             </section>
-            <section class="section-2col" style="border-bottom: none; align-items: stretch; column-gap: 0;">
+            <section class="section-2col goal-section" style="border-bottom: none; align-items: stretch; column-gap: 0; grid-template-columns: 0.6fr 1fr; height: 200px;">
                 <div style="
                     background-color: #1a1a1a;
                     color: white;
                     padding: 1.5rem;
+                    display: flex;
+                    align-items: center;
                 ">
-                    <h2 class="title">RESEARCH GOAL</h2>
-                    <p style="font-weight: lighter; margin: 1rem 0 0 0;">
-                        I build models to identify which patients benefit from treatment and which can safely avoid it.
+                    <p style="font-weight: lighter; margin: 0;">
+                        I develop AI models to predict cancer outcomes and guide treatment decisions from histopathology images.
+                        Specifically, I identify which patients benefit from therapy and which can safely avoid it.
                     </p>
                 </div>
-                <div class="content">
+                <div class="content" style="overflow: hidden; height: 200px;">
                     <img src="img/thumbnail_with_gradient_51552_20243_1200_675.png" alt="Histopathology image" style="display: block; width: 100%; height: 100%; object-fit: cover; margin: 0;">
                 </div>
             </section>
 
             <section class="section-2col">
-                <h2 class="title">RESEARCH FOCUS</h2>
-
-                <div>
-                    <p style="font-weight: lighter; margin: 0 auto;">
-                        My work focuses on building clinically reliable AI systems for oncology.
-                        I work on survival analysis, causal inference, and calibration methods to ensure model predictions reflect real-world outcomes.
-                    </p>
-                    <p style="font-weight: lighter;">
-                        A core part of this is developing multimodal models that combine histopathology images with clinical data to capture both tissue-level and patient-level signals.
-                    </p>
-                </div>
-
+                <h2 class="title">RESEARCH METHODS</h2>
+                <ul style="margin: 0; padding-left: 1.2rem; font-weight: lighter;">
+                    <li>Survival analysis for time-to-event outcome modeling</li>
+                    <li>Causal inference to estimate treatment benefit from observational data</li>
+                    <li>Calibration techniques to align model predictions with real-world outcomes</li>
+                    <li>Multimodal learning that combines histopathology images with clinical data</li>
+                </ul>
             </section>
 
             <!-- <img src="img/header.png" alt="Header image" style="display: block; max-width: 100%; height: auto; margin: 0 auto;"> -->
