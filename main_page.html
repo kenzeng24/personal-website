@@ -15,6 +15,13 @@
         </div>
     </div>
     <div id="mainContent" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
+        <div id="site-nav-wrapper">
+            <nav id="site-nav">
+                <a href="#story">Story</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
         <div class="container">
             <div class="image-container">
                 <img src="img/banner.jpg" class="startup-image" id="startupImage" alt="Ken Zeng">
@@ -30,7 +37,7 @@
                 </div>
             </section> -->
             <!-- style="margin-top: 5rem; border-bottom: none; margin-bottom: 2rem;"-->
-            <section class="section-2col">
+            <section class="section-2col" id="story">
                 <!-- <div class="image-container">
                     <img src="img/profile.png">
                 </div> -->
@@ -106,7 +113,7 @@
 
             </section>
 
-            <img src="img/header.png" alt="Header image" style="display: block; max-width: 100%; height: auto; margin: 0 auto;">
+            <!-- <img src="img/header.png" alt="Header image" style="display: block; max-width: 100%; height: auto; margin: 0 auto;"> -->
 
             <section class="section-2col" id="publications">
                 <h2 class="title">SELECTED PUBLICATIONS</h2>
@@ -166,23 +173,25 @@
                 </div>
             </section>
 
-            <section class="section-2col">
-                <h2 class="title">CONTACT</h2>
-                <div class="content">
-                    <p>Email: <a style='font-weight: bold; font-style: normal;' href="mailto:kengaryzeng@gmail.com">kengaryzeng@gmail.com</a></p>
-                    <p>
-                        <a style='font-weight: bold; font-style: normal;' href="https://twitter.com/KenZeng56288846">Twitter</a> |
-                        <a style='font-weight: bold; font-style: normal;' href="https://github.com/kenzeng24">GitHub</a> |
-                        <a style='font-weight: bold; font-style: normal;' href="https://www.linkedin.com/in/ken-zeng-1b4b0a14b/">LinkedIn</a>
-                    </p>
-                </div>
-            </section>
         </div>
+
+        <footer id="contact">
+            <div class="contact-inner">
+                <h2 class="contact-title">CONTACT</h2>
+                <div class="contact-links">
+                    <a href="mailto:kengaryzeng@gmail.com">kengaryzeng@gmail.com</a>
+                    <a href="https://twitter.com/KenZeng56288846" target="_blank">Twitter</a>
+                    <a href="https://github.com/kenzeng24" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ken-zeng-1b4b0a14b/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Remove the hidden trigger image since we have a real image now -->
 
 </body>
 <script src="spinning_wheel.js"></script>
+<script src="site_nav.js"></script>
 
 </html>

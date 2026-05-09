@@ -1,3 +1,44 @@
+/* --- Sticky nav --- */
+/* nav wrapper spans full width so the sticky background covers edge-to-edge */
+#site-nav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #e8e8e8;
+    border-bottom: 1px solid #ccc;
+}
+
+#site-nav {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+    display: flex;
+    gap: 2rem;
+    box-sizing: border-box;
+}
+
+#site-nav a {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    font-style: normal;
+    color: #555;
+    text-decoration: none;
+}
+
+#site-nav a:hover {
+    background-color: transparent;
+    color: #000;
+    box-shadow: none;
+}
+
+#site-nav a.active {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+}
+
 /* --- Two-column section layout --- */
 body {
     background-color: #e8e8e8;
@@ -18,7 +59,7 @@ body {
 
 .section-2col {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 160px 1fr;
     column-gap: 2rem;
     align-items: start;
     padding: 2rem 0;
@@ -32,7 +73,11 @@ body {
 .section-2col .title {
     margin: 0;
     font-size: 1rem;
+    font-weight: bold;
     text-align: left;
+    display: inline-block;
+    border-bottom: 3px solid #000;
+    padding-bottom: 5px;
 }
 
 .section-2col .content {
@@ -54,7 +99,7 @@ body {
     }
 
     .section-2col {
-        grid-template-columns: 220px 1fr;
+        grid-template-columns: 140px 1fr;
         column-gap: 1rem;
     }
 }
@@ -214,4 +259,55 @@ a:hover {
 .reduce-motion {
     animation: none !important;
     transition: none !important;
+}
+
+/* --- Contact footer --- */
+#contact {
+    background-color: #1a1a1a;
+    color: #e8e8e8;
+    margin-top: 2rem;
+    padding: 3rem 2rem;
+}
+
+.contact-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #e8e8e8;
+}
+
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#contact a {
+    color: #e8e8e8;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+#contact a::after {
+    content: ' ↗';
+    color: #e8e8e8;
+    font-style: normal;
+}
+
+#contact a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
 }
