@@ -1,1 +1,7 @@
 *.DS_Store
+*test.html
+*km.html
+*TODO.md
+*cache.html
+multimodal_cache.js
+km_cache.js

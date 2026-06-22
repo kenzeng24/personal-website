@@ -20,6 +20,7 @@
                 <span id="nav-brand">KEN ZENG</span>
                 <div id="nav-links">
                     <a href="#story">ABOUT</a>
+                    <a href="#research">RESEARCH</a>
                     <a href="#publications">PUBLICATIONS</a>
                     <a href="#contact">CONTACT</a>
                 </div>
@@ -28,6 +29,7 @@
         <div class="container">
             <div class="image-container">
                 <img src="img/banner.jpg" class="startup-image" id="startupImage" alt="Ken Zeng">
+                <div style="position: absolute; inset: 0; background: #f4f0ea; mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
             <!-- <section class="section-2col">
                 <h2 class="title">OVERVIEW</h2>
@@ -50,9 +52,10 @@
                     <br>
                     <h1 style="font-size: 1.4rem;font-weight: lighter; margin: 0 0 1rem 0;">
                         &emsp;&emsp;
-                        I build machine learning systems to predict cancer outcomes and help guide treatment decisions.
-                        I am a machine learning research engineer at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>,
-                        where we develop multimodal models using histopathology and clinical data.
+                        I work on survival modeling, multimodal learning, and causal inference for clinical AI —
+                        building systems that are rigorously validated across heterogeneous institutional data.
+                        I'm a machine learning research engineer at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>,
+                        focused on breast cancer prognosis from H&amp;E histopathology.
                     </h1>
                     <br>
                 </div>
@@ -60,7 +63,7 @@
 
             <section class="section-2col">
                 <p style="font-size: 0.8rem;font-weight: lighter; font-style: italic; ">
-                    Ataraxis AI, co-founded by Jan Witowski and Krzysztof Geras, develops machine learning models to predict cancer outcomes and guide treatment decisions.
+                    Ataraxis AI, co-founded by Jan Witowski and Krzysztof Geras, aims to transform precision medicine in cancer care with AI.
                 </p>
                 <div class="content">
                     <div class="image-container">
@@ -74,28 +77,18 @@
                 <h2 class="title"></h2>
                 <div class="content">
                     <p style="font-weight: lighter;">
-                        I joined Ataraxis AI in 2023 as one of the first two engineers while conducting research at NYU Langone Health.
-                        As part of a small founding team, I helped develop and validate breast cancer multimodal models across data from 15+ hospitals.
-                        This work contributed to early results that supported $4M in seed funding and later a $20M+ Series A.
-                    </p>
-                    <p>
-                        <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> |
-                        <a href="https://www.biopharmatrend.com/post/996-ataraxis-ai-steps-forward-in-precision-cancer-care-with-4-million-in-seed-funding/" target="_blank">Biopharma Trend</a> |
-                        <a href="https://www.forbes.com/sites/alexknapp/2024/10/31/this-ai-model-could-keep-thousands-of-cancer-patients-from-getting-unnecessary-treatments/" target="_blank">Forbes</a>
+                        I joined Ataraxis AI in 2023 as one of the first two founding engineers, and have since
+                        contributed to models validated across 15+ institutions. My research has been published in
+                        <em>Nature Communications</em> and <em>NeurIPS</em> workshops, and presented at ASCO, SABCS, and ESMO,
+                        in collaboration with researchers from Meta AI, MSKCC, and NYU Langone Health.
+                        This work contributed to $4M in seed funding and a $20M+ Series A.
                     </p>
                 </div>
             </section>
-            <section class="section-2col goal-section" style="border-bottom: none; align-items: stretch; column-gap: 0; grid-template-columns: 0.6fr 1fr; height: 200px;">
-                <div style="
-                    background-color: #1a1a1a;
-                    color: white;
-                    padding: 1.5rem;
-                    display: flex;
-                    align-items: center;
-                ">
-                    <p style="font-weight: lighter; margin: 0;">
-                        I develop AI models to predict cancer outcomes and guide treatment decisions from H&E images.
-                        My work helps identify patients who benefit from therapy and those who can safely avoid it.
+            <section class="section-2col goal-section" id="research" style="border-bottom: none; align-items: stretch; column-gap: 0; grid-template-columns: 0.6fr 1fr; height: 200px;">
+                <div style="background-color: #1a1a1a; color: white; padding: 1.5rem; display: flex; align-items: center;">
+                    <p style="font-size: 1.15rem; font-weight: normal; margin: 0; border-top: 3px solid white; padding-top: 5px;">
+                        From H&amp;E histology to patient-level prognosis
                     </p>
                 </div>
                 <div class="content" style="overflow: hidden; height: 200px;">
@@ -103,17 +96,57 @@
                 </div>
             </section>
 
-            <section class="section-2col">
-                <h2 class="title">RESEARCH METHODS</h2>
-                <ul style="margin: 0; padding-left: 1.2rem; font-weight: lighter;">
-                    <li>Survival analysis for time-to-event outcome modeling</li>
-                    <li>Causal inference to estimate treatment benefit from observational data</li>
-                    <li>Calibration techniques to align model predictions with real-world outcomes</li>
-                    <li>Multimodal learning that combines histopathology images with clinical data</li>
-                </ul>
+            <section class="section-2col" id="multimodal" style="border-bottom: none; background: #1a1a1a; color: #e8e8e8;">
+                <h2 class="title" style="white-space: nowrap; width: auto; color: #e8e8e8; border-bottom-color: #e8e8e8;"></h2>
+                <div class="content" style="min-width: 0;">
+                    <p style="font-weight: lighter; color: white; margin: 0 0 0.75rem 0;">
+                        Our model processes gigapixel H&amp;E slides — extracting patches,
+                        encoding morphological features with a pathology foundation model,
+                        and aggregating them into a patient-level risk prediction.
+                    </p>
+                    <canvas id="multimodal-canvas" style="display: block;"></canvas>
+                </div>
             </section>
 
-            <!-- <img src="img/header.png" alt="Header image" style="display: block; max-width: 100%; height: auto; margin: 0 auto;"> -->
+            <section class="section-2col" style="padding-top: 3rem;">
+                <h2 class="title">RESEARCH METHODS</h2>
+                <div>
+                    <p style="margin-top: 0; font-weight: lighter;">
+                        The core technical challenges are learning from censored outcomes, estimating treatment benefit
+                        without randomized data, and producing calibrated predictions that generalize across institutions.
+                    </p>
+                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
+                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Survival analysis</p>
+                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Deep survival models trained on right-censored time-to-event labels, preserving the full event-time distribution rather than collapsing to binary outcomes.</p>
+                    </div>
+                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
+                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Multimodal fusion</p>
+                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Patch embeddings from a pathology foundation model are aggregated via multiple instance learning and fused with structured clinical variables to produce a patient-level risk score.</p>
+                    </div>
+                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
+                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Causal inference</p>
+                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Individualized treatment benefit estimated from observational cohorts using deep learning-based adjustment, without relying on randomized trial data.</p>
+                    </div>
+                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
+                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Calibration</p>
+                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Post-hoc recalibration aligns predicted risk scores with observed recurrence rates across institutions, so that a predicted 20% risk means 20% in practice.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-2col" id="research-highlights">
+                <h2 class="title">RESEARCH HIGHLIGHTS</h2>
+
+                <div class="content">
+                    <p style="font-weight: lighter;">
+                        Validated across 5 external cohorts, our model produces statistically separable survival curves
+                        with a 2.84x difference in recurrence rate between risk groups.
+                    </p>
+                </div>
+                <div style="grid-column: 2; overflow: hidden; margin-top: 0.5rem;">
+                    <canvas id="km-canvas" style="display: block; transform-origin: top left;"></canvas>
+                </div>
+            </section>
 
             <section class="section-2col" id="publications">
                 <h2 class="title">SELECTED PUBLICATIONS</h2>
@@ -176,6 +209,14 @@
                         <br>
                         <span class="dimmed">San Antonio Breast Cancer Symposium 2025</span>
                     </p>
+                    <p>
+                        <a href="posters/UNIRAD - ATX ASCO 2026 Poster.pdf" target="_blank">
+                            Evaluating performance of an AI-based recurrence score in early breast cancer patients
+                            treated with chemoendocrine therapy: a secondary analysis of the UNIRAD trial
+                        </a>
+                        <br>
+                        <span class="dimmed">American Society of Clinical Oncology 2026</span>
+                    </p>
                 </div>
             </section>
 
@@ -189,6 +230,7 @@
                     <a href="https://twitter.com/KenZeng56288846" target="_blank">Twitter</a>
                     <a href="https://github.com/kenzeng24" target="_blank">GitHub</a>
                     <a href="https://www.linkedin.com/in/ken-zeng-1b4b0a14b/" target="_blank">LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=frt9o54AAAAJ&hl=en&authuser=1" target="_blank">Google Scholar</a>
                 </div>
             </div>
         </footer>
@@ -199,5 +241,7 @@
 </body>
 <script src="spinning_wheel.js"></script>
 <script src="site_nav.js"></script>
+<script src="multimodal.js"></script>
+<script src="km.js"></script>
 
 </html>

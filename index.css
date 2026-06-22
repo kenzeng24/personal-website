@@ -12,7 +12,7 @@ canvas {
 }
 
 html {
-    background-color: rgb(30, 31, 29);
+    background-color: rgb(18, 19, 17);
 }
 
 body {
@@ -74,7 +74,7 @@ body {
 
 #cta {
     all: unset;
-    font-family: 'Press Start 2P', Helvetica;
+    font-family: Helvetica;
     font-size: 20px;
     color: #00ff99;
     background-color: transparent;
@@ -144,7 +144,7 @@ body {
 /* ── Explore button ──────────────────────────────────── */
 #explore-cta {
     all: unset;
-    font-family: 'Press Start 2P', Helvetica;
+    font-family: Helvetica;
     font-size: 20px;
     font-weight: bold;
     color: #b87c45;
