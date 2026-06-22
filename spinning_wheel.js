@@ -145,8 +145,13 @@ function showPageContent() {
 
 // Track when page started loading and when image is ready
 const pageStartTime = performance.now();
-const MINIMUM_LOADING_TIME = 1300; // 2 seconds minimum
+const MINIMUM_LOADING_TIME = 1300; // 1.3 seconds minimum
 let imageReady = false;
+
+function markImageReady() {
+    imageReady = true;
+    tryShowContent();
+}
 
 function tryShowContent() {
     const elapsedTime = performance.now() - pageStartTime;
@@ -167,23 +172,12 @@ function tryShowContent() {
 
 // Ensure the image is fully loaded and decoded
 if (img.complete) {
-    img.decode().then(() => {
-        imageReady = true;
-        tryShowContent();
-    }).catch(() => {
-        imageReady = true;
-        tryShowContent();
-    });
+    img.decode().then(markImageReady).catch(markImageReady);
 } else {
     img.onload = function() {
-        img.decode().then(() => {
-            imageReady = true;
-            tryShowContent();
-        }).catch(() => {
-            imageReady = true;
-            tryShowContent();
-        });
+        img.decode().then(markImageReady).catch(markImageReady);
     };
+    img.onerror = markImageReady;
 }
 
 setTimeout(() => {

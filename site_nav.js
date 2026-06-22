@@ -1,4 +1,4 @@
-const sections = document.querySelectorAll('#story, #publications, #contact');
+const sections = document.querySelectorAll('#story, #research, #publications, #contact');
 const navLinks = document.querySelectorAll('#site-nav a');
 
 const observer = new IntersectionObserver(entries => {
