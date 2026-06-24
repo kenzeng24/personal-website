@@ -31,16 +31,6 @@
                 <img src="img/banner.jpg" class="startup-image" id="startupImage" alt="Ken Zeng">
                 <div style="position: absolute; inset: 0; background: #f4f0ea; mix-blend-mode: multiply; pointer-events: none;"></div>
             </div>
-            <!-- <section class="section-2col">
-                <h2 class="title">OVERVIEW</h2>
-                <div class="content">
-                    <p>
-                        I'm a research ML engineer at
-                        <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>, focused on developing deep learning systems for breast cancer prognosis.
-                        I previously worked as a deep learning researcher at NYU Langone Health and a data engineer at Revelio Labs.
-                    </p>
-                </div>
-            </section> -->
             <!-- style="margin-top: 5rem; border-bottom: none; margin-bottom: 2rem;"-->
             <section class="section-2col" id="story">
                 <!-- <div class="image-container">
@@ -77,11 +67,19 @@
                 <h2 class="title"></h2>
                 <div class="content">
                     <p style="font-weight: lighter;">
-                        I joined Ataraxis AI in 2023 as one of the first two founding engineers, and have since
-                        contributed to models validated across 15+ institutions. My research has been published in
-                        <em>Nature Communications</em> and <em>NeurIPS</em> workshops, and presented at ASCO, SABCS, and ESMO,
+                        I joined Ataraxis AI in 2023 as one of the first two founding engineers, where I trained and validated the first versions of the core models across 15+ institutions.
+                        My research has been published in <em>Nature Communications</em> and <em>NeurIPS</em> workshops, and presented at ASCO, SABCS, and ESMO,
                         in collaboration with researchers from Meta AI, MSKCC, and NYU Langone Health.
                         This work contributed to $4M in seed funding and a $20M+ Series A.
+                    </p>
+                    <p style="font-weight: lighter;">
+                        Prior to Ataraxis AI, I was a deep learning researcher at NYU Langone Health
+                        and a data engineer at Revelio Labs. I hold a B.A. in Statistics and
+                        Mathematics from Rice University and an M.S. in Data Science from NYU.
+                    </p>
+                    <p style="font-weight: lighter;">
+                        Going forward, I'm focused on developing models that can answer interventional questions in medical oncology.
+                        Specifically, I'm interested in extending causal inference from estimating treatment benefit to guiding sequential clinical decisions.
                     </p>
                 </div>
             </section>
@@ -115,21 +113,21 @@
                         The core technical challenges are learning from censored outcomes, estimating treatment benefit
                         without randomized data, and producing calibrated predictions that generalize across institutions.
                     </p>
-                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
-                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Survival analysis</p>
-                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Deep survival models trained on right-censored time-to-event labels, preserving the full event-time distribution rather than collapsing to binary outcomes.</p>
+                    <div class="method-item">
+                        <p class="method-title">Survival analysis</p>
+                        <p class="method-desc">Deep survival models trained on right-censored time-to-event labels, preserving the full event-time distribution rather than collapsing to binary outcomes.</p>
                     </div>
-                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
-                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Multimodal fusion</p>
-                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Patch embeddings from a pathology foundation model are aggregated via multiple instance learning and fused with structured clinical variables to produce a patient-level risk score.</p>
+                    <div class="method-item">
+                        <p class="method-title">Multimodal fusion</p>
+                        <p class="method-desc">Patch embeddings from a pathology foundation model are aggregated via multiple instance learning and fused with structured clinical variables to produce a patient-level risk score.</p>
                     </div>
-                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
-                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Causal inference</p>
-                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Individualized treatment benefit estimated from observational cohorts using deep learning-based adjustment, without relying on randomized trial data.</p>
+                    <div class="method-item">
+                        <p class="method-title">Causal inference</p>
+                        <p class="method-desc">Individualized treatment benefit estimated from observational cohorts using deep learning-based adjustment, without relying on randomized trial data.</p>
                     </div>
-                    <div style="padding: 0.75rem 0; border-top: 1px solid #ccc;">
-                        <p style="margin: 0 0 0.25rem; font-weight: normal;">Calibration</p>
-                        <p style="margin: 0; font-weight: lighter; font-size: 0.9rem;">Post-hoc recalibration aligns predicted risk scores with observed recurrence rates across institutions, so that a predicted 20% risk means 20% in practice.</p>
+                    <div class="method-item">
+                        <p class="method-title">Calibration</p>
+                        <p class="method-desc">Post-hoc recalibration aligns predicted risk scores with observed recurrence rates across institutions, so that a predicted 20% risk means 20% in practice.</p>
                     </div>
                 </div>
             </section>
@@ -148,7 +146,13 @@
                 </div>
             </section>
 
-            <section class="section-2col" id="publications">
+            <div style="position: relative; width: 100%; margin: 2rem 0 0 0; overflow: hidden;">
+                <img src="img/header.jpg" alt="" style="display: block; width: 100%; height: auto; filter: grayscale(100%) contrast(1.3) brightness(0.75);">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.15); pointer-events: none;"></div>
+                <span style="position: absolute; bottom: 0.75rem; left: 1rem; font-size: 2.75rem; font-weight: 900; color: #fff; letter-spacing: 0.02em; line-height: 1; font-family: Helvetica;">MY RESEARCH</span>
+            </div>
+
+            <section class="section-2col" id="publications" style="padding-top: 3rem;">
                 <h2 class="title">SELECTED PUBLICATIONS</h2>
                 <div class="content">
                     <p>
