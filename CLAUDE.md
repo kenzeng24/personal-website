@@ -23,7 +23,7 @@ The site is a two-page flow:
 
 1. **`index.html` + `index.css` + `waves.js`** — Landing page. Dark background with an animated canvas wave effect, Mondrian-inspired color strips on the right side, and an "EXPLORE →" button that navigates to `main_page.html`.
 
-2. **`main_page.html` + `main_page.css` + `spinning_wheel.js`** — Portfolio page with a light (`#f0f0f0`) background. Shows a loading overlay with a spinning ring animation until `img/banner.jpg` is decoded, then fades in the main content. Content is laid out in two-column grid sections (`section-2col`: 300px left label + flexible right content).
+2. **`main_page.html` + `main_page.css` + `spinning_wheel.js`** — Portfolio page with a light (`#f4f0ea`) background. Shows a loading overlay with a spinning ring animation until `img/banner.jpg` is decoded, then fades in the main content. Content is laid out in two-column grid sections (`section-2col`: 160px left label + flexible right content). Additional scripts: `site_nav.js` (active nav link highlighting on scroll), `multimodal.js` (canvas diagram on `#multimodal-canvas`), `km.js` (Kaplan-Meier survival curve on `#km-canvas`).
 
 ## JavaScript Architecture
 
@@ -31,9 +31,22 @@ The site is a two-page flow:
 
 **`spinning_wheel.js`** — Runs on `main_page.html`. Draws a rotating bundle of ellipses with pulsing amplitude modulation on `#loadingCanvas`. After the banner image is decoded AND at least 1300ms has elapsed, it fades out the overlay and fades in `#mainContent`. The animation self-terminates once the overlay is hidden.
 
+## main_page.html Content Sections
+
+- `#story` — opening headline bio
+- `#research` — dark-background goal block ("From H&E histology to patient-level prognosis") + histopathology image
+- `#multimodal` — dark section with canvas pipeline diagram
+- Research Methods — `.method-item` list (Survival analysis, Multimodal fusion, Causal inference, Calibration)
+- `#research-highlights` — KM curve canvas
+- Full-width header image with "MY RESEARCH" overlay
+- `#publications` — selected publications
+- `#posters` — conference posters (PDFs in `posters/`)
+- `#contact` (footer) — email, Twitter, GitHub, LinkedIn, Google Scholar
+
 ## Key Design Patterns
 
 - Wave constants (layer count, speed, amplitude) are grouped at the top of `waves.js` as named constants — tune those to adjust the animation feel.
 - `spinning_wheel.js` contains two loader implementations (`createBasicRingLoader` and `createRingLoader`); only `createRingLoader` is called.
 - All canvas drawing uses `devicePixelRatio` scaling for sharp rendering on HiDPI screens.
 - The `main_page.html` has several commented-out sections (overview bio, profile image placeholder) that are preserved for potential re-enabling.
+- Inline styles in `main_page.html` should be moved to `main_page.css` when a pattern repeats — e.g. `.method-item`, `.method-title`, `.method-desc` were extracted from repeated inline styles on the research methods list.
