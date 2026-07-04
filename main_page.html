@@ -44,7 +44,7 @@
                         &emsp;&emsp;
                         I work on survival modeling, multimodal learning, and causal inference for clinical AI —
                         building systems that are rigorously validated across heterogeneous institutional data.
-                        I'm a machine learning research engineer at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>,
+                        I'm a member of technical staff at <a href="https://www.ataraxis.ai/" target="_blank">Ataraxis AI</a>,
                         focused on breast cancer prognosis from H&amp;E histopathology.
                     </h1>
                     <br>
@@ -72,18 +72,27 @@
                         in collaboration with researchers from Meta AI, MSKCC, and NYU Langone Health.
                         This work contributed to $4M in seed funding and a $20M+ Series A.
                     </p>
+                    <p>
+                        <a href="https://www.businesswire.com/news/home/20250304213795/en/Ataraxis-AI-to-Transform-Precision-Medicine-in-Cancer-Care-with-%2420.4-Million-Series-A" target="_blank">Business Wire</a> |
+                        <a href="https://www.biopharmatrend.com/post/996-ataraxis-ai-steps-forward-in-precision-cancer-care-with-4-million-in-seed-funding/" target="_blank">Biopharma Trend</a> |
+                        <a href="https://www.forbes.com/sites/alexknapp/2024/10/31/this-ai-model-could-keep-thousands-of-cancer-patients-from-getting-unnecessary-treatments/" target="_blank">Forbes</a>
+                    </p>
+                    <p style="font-weight: lighter;">
+                        Since then, I've trained, validated, and deployed two models for breast cancer prognosis: ATX RISK and CTX, responsible for patient stratification and chemotherapy benefit prediction.
+                        These models have been validated in phase III clinical trials and are now used in clinical practice by oncologists and surgeons across the US.
+                    </p>
+                    <p>
+                        <a href="https://www.insideprecisionmedicine.com/topics/oncology/precision-cancer-diagnostic-firm-ataraxis-ai-launches/">ATX RISK</a> |
+                        <a href="https://www.businesswire.com/news/home/20260330075280/en/Ataraxis-AI-Launches-Ataraxis-Breast-CTX-the-First-Predictive-AI-Test-Estimating-Individualized-Chemotherapy-Benefit-in-Breast-Cancer?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark">CTX</a>
+                    </p>
                     <p style="font-weight: lighter;">
                         Prior to Ataraxis AI, I was a deep learning researcher at NYU Langone Health
                         and a data engineer at Revelio Labs. I hold a B.A. in Statistics and
                         Mathematics from Rice University and an M.S. in Data Science from NYU.
                     </p>
-                    <p style="font-weight: lighter;">
-                        Going forward, I'm focused on developing models that can answer interventional questions in medical oncology.
-                        Specifically, I'm interested in extending causal inference from estimating treatment benefit to guiding sequential clinical decisions.
-                    </p>
                 </div>
             </section>
-            <section class="section-2col goal-section" id="research" style="border-bottom: none; align-items: stretch; column-gap: 0; grid-template-columns: 0.6fr 1fr; height: 200px;">
+            <!-- <section class="section-2col goal-section" id="research" style="border-bottom: none; align-items: stretch; column-gap: 0; grid-template-columns: 0.6fr 1fr; height: 200px;">
                 <div style="background-color: #1a1a1a; color: white; padding: 1.5rem; display: flex; align-items: center;">
                     <p style="font-size: 1.15rem; font-weight: normal; margin: 0; border-top: 3px solid white; padding-top: 5px;">
                         From H&amp;E histology to patient-level prognosis
@@ -92,11 +101,12 @@
                 <div class="content" style="overflow: hidden; height: 200px;">
                     <img src="img/thumbnail_with_gradient_51552_20243_1200_675.png" alt="Histopathology image" style="display: block; width: 100%; height: 100%; object-fit: cover; margin: 0;">
                 </div>
-            </section>
+            </section> -->
 
-            <section class="section-2col" id="multimodal" style="border-bottom: none; background: #1a1a1a; color: #e8e8e8;">
+            <section class="section-2col" id="research" style="border-bottom: none; background: #1a1a1a; color: #e8e8e8;">
                 <h2 class="title" style="white-space: nowrap; width: auto; color: #e8e8e8; border-bottom-color: #e8e8e8;"></h2>
                 <div class="content" style="min-width: 0;">
+                    <h2 style="font-size: 1.4rem;font-weight: bold; margin: 0 0 0.75rem 0;">From H&amp;E histology to patient-level prognosis</h2>
                     <p style="font-weight: lighter; color: white; margin: 0 0 0.75rem 0;">
                         Our model processes gigapixel H&amp;E slides — extracting patches,
                         encoding morphological features with a pathology foundation model,
@@ -115,7 +125,10 @@
                     </p>
                     <div class="method-item">
                         <p class="method-title">Survival analysis</p>
-                        <p class="method-desc">Deep survival models trained on right-censored time-to-event labels, preserving the full event-time distribution rather than collapsing to binary outcomes.</p>
+                        <p class="method-desc">
+                            Deep survival models trained on right-censored time-to-event labels,
+                            preserving the full event-time distribution rather than collapsing to binary outcomes.
+                        </p>
                     </div>
                     <div class="method-item">
                         <p class="method-title">Multimodal fusion</p>
@@ -239,9 +252,6 @@
             </div>
         </footer>
     </div>
-
-    <!-- Remove the hidden trigger image since we have a real image now -->
-
 </body>
 <script src="spinning_wheel.js"></script>
 <script src="site_nav.js"></script>
