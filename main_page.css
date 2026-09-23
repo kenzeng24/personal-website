@@ -100,6 +100,66 @@ body {
 
 .section-2col .content {
     text-align: left;
+    min-width: 0;
+}
+
+section[id], #publication-prognosis, #research .method-item {
+    scroll-margin-top: 5rem;
+}
+
+.research-intro, #research-highlights p,
+.research-pipeline p, .publication-takeaway {
+    line-height: 1.6;
+}
+
+#research-highlights h3, .research-pipeline h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.4rem;
+}
+
+.research-links {
+    font-size: 0.9rem;
+}
+
+.research-links a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-style: normal;
+}
+
+.research-figure {
+    margin: 1.5rem 0 0;
+}
+
+.chart-wrapper {
+    overflow: hidden;
+}
+
+.research-figure canvas, .research-pipeline canvas {
+    display: block;
+}
+
+.research-figure figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.research-pipeline {
+    background: #1a1a1a;
+    color: #e8e8e8;
+    padding: 2rem 1rem;
+    border-bottom: none;
+}
+
+.research-pipeline .title {
+    border-bottom-color: #e8e8e8;
+}
+
+.publication-takeaway {
+    display: block;
+    margin-top: 0.5rem;
 }
 
 .section-2col .content> :first-child {
