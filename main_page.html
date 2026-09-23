@@ -84,12 +84,11 @@
                     <p>
                         <a href="https://www.insideprecisionmedicine.com/topics/oncology/precision-cancer-diagnostic-firm-ataraxis-ai-launches/">ATX RISK</a> |
                         <a href="https://www.businesswire.com/news/home/20260330075280/en/Ataraxis-AI-Launches-Ataraxis-Breast-CTX-the-First-Predictive-AI-Test-Estimating-Individualized-Chemotherapy-Benefit-in-Breast-Cancer?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark">CTX</a> |
-                        <a href="https://finance.yahoo.com/healthcare/articles/ataraxis-ai-publishes-landmark-studies-150000013.html" target="_blank">Clinical trial validation</a>
+                        <a href="https://finance.yahoo.com/healthcare/articles/ataraxis-ai-publishes-landmark-studies-150000013.html" target="_blank">Validation</a>
                     </p>
                     <p style="font-weight: lighter;">
-                        Prior to Ataraxis AI, I was a deep learning researcher at NYU Langone Health
-                        and a data engineer at Revelio Labs. I hold a B.A. in Statistics and
-                        Mathematics from Rice University and an M.S. in Data Science from NYU.
+                        Prior to Ataraxis AI, I was a deep learning researcher at NYU Langone Health and a data engineer at Revelio Labs.
+                        I hold a B.A. in Statistics and Mathematics from Rice University and an M.S. in Data Science from NYU.
                     </p>
                 </div>
             </section>
@@ -99,13 +98,18 @@
                     <p style="font-weight: lighter;">Much of the existing work in AI for cancer focuses on initial diagnosis, with less attention paid to what happens afterward. My work at Ataraxis AI uses machine learning to explore patient outcomes after diagnosis. Currently, I focus on two related questions in breast cancer: how likely is the cancer to recur, and who may benefit from chemotherapy?</p>
                     <article class="method-item" id="prognosis">
                         <p class="method-title">Breast cancer prognosis (ATX RISK)</p>
-                        <p class="method-desc">I trained, validated, and deployed a model that estimates recurrence risk from H&amp;E pathology slides and clinical data to stratify patients by risk.
+                        <p class="method-desc">
+                            I trained, validated, and deployed a model that estimates recurrence risk from H&amp;E pathology slides and clinical data to stratify patients by risk.
                             The ensemble is trained using a discrete-time loss to predict the probability of cancer recurrence within five years.
+                            This work has been validated across five external cohorts, and many of the core methods were used in other Ataraxis AI models.
                         </p>
                     </article>
                     <article class="method-item" id="treatment-benefit">
                         <p class="method-title">Chemotherapy benefit prediction · CTX</p>
-                        <p class="method-desc">I trained, validated, and deployed models to estimate individualized chemotherapy benefit from observational cohorts using techniques from causal inference.
+                        <p class="method-desc">
+                            I trained, validated, and deployed models to estimate individualized chemotherapy benefit from observational cohorts, where treatment choices are biased by patient risk.
+                            In a secondary analysis of the phase III TAILORx trial, CTX identified an 11% subgroup of patients with intermediate genomic risk who
+                            benefited from chemotherapy, although the broader group showed no benefit on average.
                         </p>
                     </article>
                 </div>
