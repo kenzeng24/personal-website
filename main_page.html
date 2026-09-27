@@ -78,47 +78,68 @@
                         <a href="https://www.forbes.com/sites/alexknapp/2024/10/31/this-ai-model-could-keep-thousands-of-cancer-patients-from-getting-unnecessary-treatments/" target="_blank">Forbes</a>
                     </p>
                     <p style="font-weight: lighter;">
-                        Since then, I've trained, validated, and deployed two models for breast cancer prognosis: ATX RISK and CTX, responsible for patient stratification and chemotherapy benefit prediction.
-                        These models have been validated in phase III clinical trials and are now used in clinical practice by oncologists and surgeons across the US.
+                        Since then, I've trained, validated, and deployed two breast cancer AI models: ATX RISK for recurrence risk stratification and CTX for estimating chemotherapy benefit.
+                        The models have been evaluated in secondary analyses of the phase III UNIRAD and TAILORx trials and are now used in clinical practice by oncologists and surgeons across the US.
                     </p>
                     <p>
                         <a href="https://www.insideprecisionmedicine.com/topics/oncology/precision-cancer-diagnostic-firm-ataraxis-ai-launches/">ATX RISK</a> |
-                        <a href="https://www.businesswire.com/news/home/20260330075280/en/Ataraxis-AI-Launches-Ataraxis-Breast-CTX-the-First-Predictive-AI-Test-Estimating-Individualized-Chemotherapy-Benefit-in-Breast-Cancer?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark">CTX</a>
+                        <a href="https://www.businesswire.com/news/home/20260330075280/en/Ataraxis-AI-Launches-Ataraxis-Breast-CTX-the-First-Predictive-AI-Test-Estimating-Individualized-Chemotherapy-Benefit-in-Breast-Cancer?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark">CTX</a> |
+                        <a href="https://finance.yahoo.com/healthcare/articles/ataraxis-ai-publishes-landmark-studies-150000013.html" target="_blank">Validation</a>
                     </p>
                     <p style="font-weight: lighter;">
-                        Prior to Ataraxis AI, I was a deep learning researcher at NYU Langone Health
-                        and a data engineer at Revelio Labs. I hold a B.A. in Statistics and
-                        Mathematics from Rice University and an M.S. in Data Science from NYU.
+                        Prior to Ataraxis AI, I was a deep learning researcher at NYU Langone Health and a data engineer at Revelio Labs.
+                        I hold a B.A. in Statistics and Mathematics from Rice University and an M.S. in Data Science from NYU.
                     </p>
                 </div>
             </section>
-            <!-- <section class="section-2col goal-section" id="research" style="border-bottom: none; align-items: stretch; column-gap: 0; grid-template-columns: 0.6fr 1fr; height: 200px;">
-                <div style="background-color: #1a1a1a; color: white; padding: 1.5rem; display: flex; align-items: center;">
-                    <p style="font-size: 1.15rem; font-weight: normal; margin: 0; border-top: 3px solid white; padding-top: 5px;">
-                        From H&amp;E histology to patient-level prognosis
-                    </p>
-                </div>
-                <div class="content" style="overflow: hidden; height: 200px;">
-                    <img src="img/thumbnail_with_gradient_51552_20243_1200_675.png" alt="Histopathology image" style="display: block; width: 100%; height: 100%; object-fit: cover; margin: 0;">
-                </div>
-            </section> -->
-
-            <section class="section-2col" id="research" style="border-bottom: none; background: #1a1a1a; color: #e8e8e8;">
-                <h2 class="title" style="white-space: nowrap; width: auto; color: #e8e8e8; border-bottom-color: #e8e8e8;"></h2>
-                <div class="content" style="min-width: 0;">
-                    <h2 style="font-size: 1.4rem;font-weight: bold; margin: 0 0 0.75rem 0;">From H&amp;E histology to patient-level prognosis</h2>
-                    <p style="font-weight: lighter; color: white; margin: 0 0 0.75rem 0;">
-                        Our model processes gigapixel H&amp;E slides — extracting patches,
-                        encoding morphological features with a pathology foundation model,
-                        and aggregating them into a patient-level risk prediction.
-                    </p>
-                    <canvas id="multimodal-canvas" style="display: block;"></canvas>
+            <section class="section-2col" id="research">
+                <h2 class="title">SELECTED RESEARCH</h2>
+                <div class="content">
+                    <p style="font-weight: lighter;">Much of the existing work in AI for cancer focuses on initial diagnosis, with less attention paid to what happens afterward. My work at Ataraxis AI uses machine learning to explore patient outcomes after diagnosis. Currently, I focus on two related questions in breast cancer: how likely is the cancer to recur, and who may benefit from chemotherapy?</p>
+                    <article class="method-item" id="prognosis">
+                        <p class="method-title">Breast cancer prognosis (ATX RISK)</p>
+                        <p class="method-desc">
+                            I trained, validated, and deployed a model that estimates recurrence risk from H&amp;E pathology slides and clinical data to stratify patients by risk.
+                            The ensemble is trained using a discrete-time loss to predict the probability of cancer recurrence within five years.
+                            This work has been validated across five external cohorts, and many of the core methods were used in other Ataraxis AI models.
+                        </p>
+                    </article>
+                    <article class="method-item" id="treatment-benefit">
+                        <p class="method-title">Chemotherapy benefit prediction · CTX</p>
+                        <p class="method-desc">
+                            I trained, validated, and deployed models to estimate individualized chemotherapy benefit from observational cohorts, where treatment choices are biased by patient risk.
+                            In a secondary analysis of the phase III TAILORx trial, CTX identified an 11% subgroup of patients with intermediate genomic risk who
+                            benefited from chemotherapy, although the broader group showed no benefit on average.
+                        </p>
+                    </article>
                 </div>
             </section>
 
-            <section class="section-2col" style="padding-top: 3rem;">
-                <h2 class="title">RESEARCH METHODS</h2>
-                <div>
+            <section class="section-2col" id="research-highlights">
+                <h2 class="title">RESULTS & VALIDATION</h2>
+                <div class="content">
+                    <p style="font-weight: lighter;">The breast cancer prognostication work includes validation across five external cohorts.</p>
+                    <figure class="research-figure">
+                        <div class="chart-wrapper">
+                            <canvas id="km-canvas" role="img" aria-label="Illustrative survival curves for simulated higher-risk and lower-risk groups" aria-describedby="km-caption">Illustrative survival curves showing how recurrence-free survival differs between simulated risk groups.</canvas>
+                        </div>
+                        <figcaption id="km-caption">Illustration using simulated data. The curves and 2.84× hazard ratio are illustrative, not observed clinical study results. See the linked studies for validation evidence.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section-2col research-pipeline" id="how-it-works">
+                <h2 class="title">HOW IT WORKS</h2>
+                <div class="content">
+                    <h3>From H&amp;E histology to patient-level prognosis</h3>
+                    <p>Our model processes gigapixel H&amp;E slides — extracting patches, encoding morphological features with a pathology foundation model, and aggregating them into a patient-level risk prediction.</p>
+                    <canvas id="multimodal-canvas" role="img" aria-label="Pipeline from histology slides through patch extraction and feature encoding to patient-level prediction">Histology slides are divided into patches, encoded with a pathology foundation model, and aggregated into a patient-level prediction.</canvas>
+                </div>
+            </section>
+
+            <section class="section-2col" id="research-methods">
+                <h2 class="title">METHODS</h2>
+                <div class="content">
                     <p style="margin-top: 0; font-weight: lighter;">
                         The core technical challenges are learning from censored outcomes, estimating treatment benefit
                         without randomized data, and producing calibrated predictions that generalize across institutions.
@@ -126,8 +147,8 @@
                     <div class="method-item">
                         <p class="method-title">Survival analysis</p>
                         <p class="method-desc">
-                            Deep survival models trained on right-censored time-to-event labels,
-                            preserving the full event-time distribution rather than collapsing to binary outcomes.
+                            Deep survival models are trained on right-censored time-to-event labels,
+                            preserving the full event-time distribution rather than reducing outcomes to binary labels.
                         </p>
                     </div>
                     <div class="method-item">
@@ -136,38 +157,32 @@
                     </div>
                     <div class="method-item">
                         <p class="method-title">Causal inference</p>
-                        <p class="method-desc">Individualized treatment benefit estimated from observational cohorts using deep learning-based adjustment, without relying on randomized trial data.</p>
+                        <p class="method-desc">Individualized treatment benefit is estimated from observational cohorts using deep learning-based adjustment, without relying on randomized trial data. These approaches draw on deep learning methods, such as counterfactual regression networks (CFRNet), as well as more traditional doubly robust methods.</p>
                     </div>
                     <div class="method-item">
                         <p class="method-title">Calibration</p>
-                        <p class="method-desc">Post-hoc recalibration aligns predicted risk scores with observed recurrence rates across institutions, so that a predicted 20% risk means 20% in practice.</p>
+                        <p class="method-desc">Post-hoc recalibration aligns predicted risk scores with observed recurrence rates across institutions, so that a predicted 20% risk means 20% in practice. These methods use beta calibration with resampled patient outcomes from the training cohorts.</p>
                     </div>
                 </div>
             </section>
-
-            <section class="section-2col" id="research-highlights">
-                <h2 class="title">RESEARCH HIGHLIGHTS</h2>
-
-                <div class="content">
-                    <p style="font-weight: lighter;">
-                        Validated across 5 external cohorts, our model produces statistically separable survival curves
-                        with a 2.84x difference in recurrence rate between risk groups.
-                    </p>
-                </div>
-                <div style="grid-column: 2; overflow: hidden; margin-top: 0.5rem;">
-                    <canvas id="km-canvas" style="display: block; transform-origin: top left;"></canvas>
-                </div>
-            </section>
-
-            <div style="position: relative; width: 100%; margin: 2rem 0 0 0; overflow: hidden;">
-                <img src="img/header.jpg" alt="" style="display: block; width: 100%; height: auto; filter: grayscale(100%) contrast(1.3) brightness(0.75);">
-                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.15); pointer-events: none;"></div>
-                <span style="position: absolute; bottom: 0.75rem; left: 1rem; font-size: 2.75rem; font-weight: 900; color: #fff; letter-spacing: 0.02em; line-height: 1; font-family: Helvetica;">MY RESEARCH</span>
-            </div>
 
             <section class="section-2col" id="publications" style="padding-top: 3rem;">
                 <h2 class="title">SELECTED PUBLICATIONS</h2>
                 <div class="content">
+                    <p id="publication-prognosis"><a href="https://www.nature.com/articles/s41467-026-73088-y" target="_blank">
+                            Multi-modal AI for comprehensive breast cancer prognostication
+                        </a><br> <span class="dimmed">Jan Witowski,</span> <span class="dimmed" style="text-decoration: underline;">Ken Zeng</span>
+                        <span class="dimmed">, Joseph Cappadona, … Francisco J Esteva, Lajos Pusztai, Yann LeCun, Krzysztof J Geras</span>
+                        <br>
+                        <span class="dimmed"><em>Nature Communications, 2026</em></span>
+                    </p>
+                    <p><a href="https://openreview.net/pdf?id=opIx2SYw7r" target="_blank">
+                            Squeezing performance from pathology foundation models with chained hyperparameter searches
+                        </a><br> <span class="dimmed">Joseph Cappadona,</span> <span class="dimmed" style="text-decoration: underline;">Ken Zeng</span>
+                        <span class="dimmed">, Carlos Fernandez-Granda, Jan Witowski, Yann LeCun, Krzysztof J Geras</span>
+                        <br>
+                        <span class="dimmed"><em>NeurIPS 2024 Workshop: Self-Supervised Learning-Theory and Practice</em></span>
+                    </p>
                     <p>
                         <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10350195/" target="_blank">
                             Improving Information Extraction from Pathology Reports using Named Entity Recognition
@@ -178,27 +193,61 @@
                         <br>
                         <span class="dimmed"><em>Preprint, 2024</em></span>
                     </p>
-                    <p><a href="https://openreview.net/pdf?id=opIx2SYw7r" target="_blank">
-                            Squeezing performance from pathology foundation models with chained hyperparameter searches
-                        </a><br> <span class="dimmed">Joseph Cappadona,</span> <span class="dimmed" style="text-decoration: underline;">Ken Zeng</span>
-                        <span class="dimmed">, Carlos Fernandez-Granda, Jan Witowski, Yann LeCun, Krzysztof J Geras</span>
+                    <p>
+                        <a href="https://arxiv.org/html/2609.13567v1" target="_blank">
+                            Causal multi-modal AI for personalized chemosensitivity prediction
+                        </a>
                         <br>
-                        <span class="dimmed"><em>NeurIPS 2024 Workshop: Self-Supervised Learning-Theory and Practice</em></span>
+                        <span class="dimmed">Dhruva Biswas, Jeroen Berrevoets, Alec McClean, Linus Bao, Jungkyu Park, </span><span class="dimmed" style="text-decoration: underline;">Ken Zeng</span><span class="dimmed">, … Jan Witowski, Krzysztof J Geras</span>
+                        <br>
+                        <span class="dimmed"><em>arXiv preprint, 2026</em></span>
                     </p>
-                    <p><a href="https://arxiv.org/pdf/2410.21256" target="_blank">
-                            Multi-modal AI for comprehensive breast cancer prognostication
-                        </a><br> <span class="dimmed">Jan Witowski,</span> <span class="dimmed" style="text-decoration: underline;">Ken Zeng</span>
-                        <span class="dimmed">, Joseph Cappadona, … Francisco J Esteva, Lajos Pusztai, Yann LeCun, Krzysztof J Geras</span>
+                    <p>
+                        <a href="https://www.medrxiv.org/content/10.64898/2026.09.12.26362500v2" target="_blank">
+                            An AI Model Identifies Chemotherapy Benefit in Node-Negative HR+/HER2- Breast Cancer Patients from TAILORx, a Phase 3 Randomized Clinical Trial
+                        </a>
                         <br>
-                        <span class="dimmed"><em>Nature Communications, 2026</em></span>
+                        <span class="dimmed">Nancy Chan, Cerise Tang, Dhruva Biswas, Jungkyu Park, </span><span class="dimmed" style="text-decoration: underline;">Ken Zeng</span><span class="dimmed">, … Joseph A Sparano, TAILORx Investigators</span>
+                        <br>
+                        <span class="dimmed"><em>medRxiv preprint, 2026</em></span>
+                    </p>
+                    <p>
+                        <a href="https://www.researchgate.net/publication/414557537_A_Causal_Multi-modal_AI_Model_Stratifies_Residual_Risk_and_Identifies_Candidates_for_Treatment_Escalation_in_Node-Positive_HRHER2-_Early_Breast_Cancer" target="_blank">
+                            A Causal Multi-modal AI Model Stratifies Residual Risk and Identifies Candidates for Treatment Escalation in Node-Positive HR+/HER2- Early Breast Cancer
+                        </a>
+                        <br>
+                        <span class="dimmed">Thomas Bachelot, Sylvie Chabaud, Jerome Lemonnier, … Dhruva Biswas, </span><span class="dimmed" style="text-decoration: underline;">Ken Zeng</span><span class="dimmed">, Jan Witowski, Krzysztof J Geras, Fabrice Andre, Frederique Madeleine Penault-Llorca</span>
+                        <br>
+                        <span class="dimmed"><em>medRxiv preprint, 2026</em></span>
                     </p>
                 </div>
             </section>
 
             <section class="section-2col" id="posters">
-                <h2 class="title">POSTERS</h2>
+                <h2 class="title">POSTERS &amp; PRESENTATIONS</h2>
                 <div class="content">
-
+                    <p>
+                        <a href="posters/UNIRAD - ATX ASCO 2026 Poster.pdf" target="_blank">
+                            Evaluating performance of an AI-based recurrence score in early breast cancer patients
+                            treated with chemoendocrine therapy: a secondary analysis of the UNIRAD trial
+                        </a>
+                        <br>
+                        <span class="dimmed">American Society of Clinical Oncology 2026</span>
+                    </p>
+                    <p>
+                        <a href="posters/SABCS 2025 - Calibration.pdf" target="_blank">
+                            Aligning AI Recurrence Predictions with Real-world Recurrence Rates Through Survival Calibration
+                        </a>
+                        <br>
+                        <span class="dimmed">San Antonio Breast Cancer Symposium 2025</span>
+                    </p>
+                    <p>
+                        <a href="posters/ESMO Breast 2025 - Kestrel - Poster.pdf" target="_blank">
+                            AI foundation model for breast cancer characterization and outcome prediction
+                        </a>
+                        <br>
+                        <span class="dimmed">European Society For Medical Oncology 2025</span>
+                    </p>
                     <p>
                         <a href="posters/SABCS 2024 - Ataraxis Breast - Poster - Cleaned.pdf" target="_blank">
                             Preliminary validation of a multi-modal AI for stratification of early-stage breast cancer patients utilizing a foundation model for digital pathology
@@ -211,28 +260,6 @@
                             Squeezing performance from pathology foundation models with chained hyperparameter searches</a>
                         <br>
                         <span class='dimmed'>NeurIPS Self-Supervised Learning 2024</span>
-                    </p>
-                    <p>
-                        <a href="posters/ESMO Breast 2025 - Kestrel - Poster.pdf" target="_blank">
-                            AI foundation model for breast cancer characterization and outcome prediction
-                        </a>
-                        <br>
-                        <span class="dimmed">European Society For Medical Oncology 2025</span>
-                    </p>
-                    <p>
-                        <a href="posters/SABCS 2025 - Calibration.pdf" target="_blank">
-                            Aligning AI Recurrence Predictions with Real-world Recurrence Rates Through Survival Calibration
-                        </a>
-                        <br>
-                        <span class="dimmed">San Antonio Breast Cancer Symposium 2025</span>
-                    </p>
-                    <p>
-                        <a href="posters/UNIRAD - ATX ASCO 2026 Poster.pdf" target="_blank">
-                            Evaluating performance of an AI-based recurrence score in early breast cancer patients
-                            treated with chemoendocrine therapy: a secondary analysis of the UNIRAD trial
-                        </a>
-                        <br>
-                        <span class="dimmed">American Society of Clinical Oncology 2026</span>
                     </p>
                 </div>
             </section>
